@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gramps 5.x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-08 16:41+0000\n"
-"PO-Revision-Date: 2025-03-02 14:58+0000\n"
+"POT-Creation-Date: 2025-03-09 22:38+0000\n"
+"PO-Revision-Date: 2025-11-15 19:51+0000\n"
 "Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/gramps-project/"
 "addons/hr/>\n"
@@ -13,26 +13,26 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.10.3-dev\n"
+"X-Generator: Weblate 5.15-dev\n"
 
 msgid "Media Report"
 msgstr "Izvještaj o medijima"
 
 msgid "Generates report including images, image data and notes."
-msgstr "Izrađuje izvještaj koji uključuje slike, podatke slika i zabilješke."
+msgstr "Generira izvještaj koji uključuje slike, podatke slika i zabilješke."
 
 msgid "INFO"
 msgstr "INFORMACIJE"
 
 msgid "You have to select an image to generate this report."
-msgstr "Za stvaranje ovog izvještaja moraš odabrati jednu sliku."
+msgstr "Za generiranje ovog izvještaja moraš odabrati jednu sliku."
 
 msgid ""
 "You have to select a custom note or uncheck the option 'include custom note' "
 "to generate this report."
 msgstr ""
-"Za stvaranje ovog izvještaja moraš odabrati jednu prilagođenu zabilješku ili "
-"odznači opciju „Uključi prilagođenu zabilješku”."
+"Za generiranje ovog izvještaja moraš odabrati jednu prilagođenu zabilješku "
+"ili odznači opciju „Uključi prilagođenu zabilješku”."
 
 msgid "This report only supports PDF as output file format."
 msgstr "Ovaj izvještaj podržava samo PDF kao izlazni format."
@@ -47,7 +47,7 @@ msgid "Heading"
 msgstr "Naslov"
 
 msgid "Select a media file for this report"
-msgstr "Odaberi datoteku medija za ovaj izvještaj"
+msgstr "Odaberi medijsku datoteku za ovaj izvještaj"
 
 msgid "Custom note"
 msgstr "Prilagođena zabilješka"
@@ -59,19 +59,19 @@ msgid "Include custom note"
 msgstr "Uključi prilagođenu zabilješku"
 
 msgid "The custom note will be included"
-msgstr "Prilagođena zabilješka će se uključiti u izvještaj"
+msgstr "Prilagođena zabilješka će se uključiti"
 
 msgid "Include referenced people"
-msgstr "Uključi osobe povezane s medijem"
+msgstr "Uključi referencirane osobe"
 
 msgid "Referenced people will be included"
-msgstr "Osobe povezane s medijem će se uključiti u izvještaj"
+msgstr "Referencirane osobe će se uključiti"
 
 msgid "Include media data"
 msgstr "Uključi podatke medija"
 
 msgid "Tags, notes and attributes will be included"
-msgstr "Etikete, zabilješke i svojstva će se uključiti u izvještaj"
+msgstr "Oznake, zabilješke i svojstva će se uključiti"
 
 msgid "Media width"
 msgstr "Širina medija"
@@ -83,6 +83,6 @@ msgstr "Maksimalna širina medija u postocima dostupne širine stranice."
 msgid "Media height"
 msgstr "Visina medija"
 
-#, python-format
+#, no-python-format
 msgid "Maximum media height in % of available page height."
 msgstr "Maksimalna visina medija u postocima dostupne visine stranice."

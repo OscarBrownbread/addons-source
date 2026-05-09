@@ -1,0 +1,106 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: trunk\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-02-16 15:10-0800\n"
+"PO-Revision-Date: 2025-04-11 12:50+0000\n"
+"Last-Translator: jmichault <jmt.2000@free.fr>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/gramps-project/"
+"addons/fr/>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"X-Generator: Weblate 5.11-dev\n"
+
+msgid "Event Roles"
+msgstr "Rôles de l'événement"
+
+msgid "Event Types"
+msgstr "Types d'évènement"
+
+msgid "Family Relation Types"
+msgstr "Types de relation familiale"
+
+msgid "Child reference Types"
+msgstr "Types de référence enfant"
+
+msgid "Name Origin Types"
+msgstr "Types d'origine du nom"
+
+msgid "Name Types"
+msgstr "Types de nom"
+
+msgid "Note Types"
+msgstr "Types de note"
+
+msgid "Place Types"
+msgstr "Types de lieu"
+
+msgid "Repository Types"
+msgstr "Types de dépôt"
+
+msgid "Source Media Types"
+msgstr "Types de media de source"
+
+msgid "URL Types"
+msgstr "Types d'URL"
+
+msgid "Types Cleanup Tool"
+msgstr "Outil de nettoyage des types"
+
+msgid ""
+"Remove the selected type from the db.\n"
+"This does not change any referenced objects."
+msgstr ""
+"Retirer le type sélectionné de la base.\n"
+"Cela ne change aucun objet référencé."
+
+msgid ""
+"Select a new name for the current type, prior to renaming the type in the "
+"referenced objects."
+msgstr ""
+"Sélectionner un nouveau nom pour le type courant, avant de renommer le type "
+"dans les objets référencés."
+
+msgid "Rename"
+msgstr "Renommer"
+
+msgid "Rename the selected type in all referenced objects."
+msgstr "Renommer le type sélectionné dans tous les objets référencés."
+
+msgid "Close the Type Cleanup Tool"
+msgstr "Fermer l'outil Nettoyage de type"
+
+msgid "Types"
+msgstr "Types"
+
+msgid "Type Cleanup Tool"
+msgstr "Outil de nettoyage de type"
+
+#, python-format
+msgid "Changing type from %(old_type)s to %(new_type)s."
+msgstr "Changement de type de %(old_type)s à %(new_type)s."
+
+msgid ""
+"Removing this custom type will eliminate it from the type selection drop "
+"down lists\n"
+"and further runs of this tool.\n"
+"\n"
+"However, it will not remove it from the referenced items in the database.\n"
+"If you want to change it in referenced items, use 'Rename'."
+msgstr ""
+"La suppression de ce type personnalisé l'éliminera de la liste de sélection "
+"de type\n"
+"et des exécutions futures de cet outil.\n"
+"\n"
+"Cependant, il ne le supprimera pas des éléments référencés dans la base de "
+"données.\n"
+"Si vous voulez le modifier dans les articles référencés, utilisez 'Renommer'."
+
+msgid "Type Cleanup"
+msgstr "Nettoyage de type"
+
+msgid "Clean up (remove) custom types"
+msgstr "Nettoyer (supprimer) les types personnalisés"

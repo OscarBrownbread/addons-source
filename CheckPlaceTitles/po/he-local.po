@@ -1,0 +1,61 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Gramps 5.2.0 – mediamerge\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-02-06 08:56-0800\n"
+"PO-Revision-Date: 2025-08-11 18:01+0000\n"
+"Last-Translator: Avi Markovitz <avi.markovitz@gmail.com>\n"
+"Language-Team: Hebrew <https://hosted.weblate.org/projects/gramps-project/"
+"addons/he/>\n"
+"Language: he\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
+"n % 10 == 0) ? 2 : 3));\n"
+"X-Generator: Weblate 5.13-dev\n"
+
+msgid "Check Place Titles"
+msgstr "בדיקת כותרות מקום"
+
+msgid "Check place titles"
+msgstr "בדיקת כותרות מקום"
+
+msgid "Check Place title"
+msgstr "בדיקת כותרות מקום"
+
+msgid "Checking Place Titles"
+msgstr "מתבצעת בדיקת כותרות מקום"
+
+msgid "Looking for place fields"
+msgstr "חיפוש שדות מקום"
+
+msgid "Differences"
+msgstr "הבדלים"
+
+msgid "No need modifications"
+msgstr "לא נדרשות הסגלות"
+
+msgid "No changes need."
+msgstr "לא נדרשים שינויים."
+
+msgid "Legacy place"
+msgstr "מקום מהעבר"
+
+msgid "Modify Place titles"
+msgstr "הסגלת כותרות מקום"
+
+msgid "Place titles"
+msgstr "כותרות מקום"
+
+msgid "Remove content of place title field if it does not match"
+msgstr "נא להסיר תוכן שדה כותרת מקום אם הוא אינו תואם"
+
+msgid "Copy content of place title field to a new note."
+msgstr "העתקת תוכן שדה כותרת מקוםלהערה חדשה."
+
+msgid "Attach a tag on selected places."
+msgstr "צרוף תג למקומות שנבחרו."
+
+msgid "column"
+msgstr "עמודה"

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: fi\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-16 15:10-0800\n"
-"PO-Revision-Date: 2025-02-20 13:28+0000\n"
+"PO-Revision-Date: 2025-09-22 19:02+0000\n"
 "Last-Translator: Matti Niemelä <niememat@gmail.com>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/gramps-project/"
 "addons/fi/>\n"
@@ -12,11 +12,14 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10.1-dev\n"
+"X-Generator: Weblate 5.14-dev\n"
 "Generated-By: pygettext.py 1.4\n"
 
 msgid "Graph View"
 msgstr "Kaavionäkymä"
+
+msgid "Show IDs"
+msgstr "Näytä IDt"
 
 msgid "Show avatars"
 msgstr "Näytä hahmot"
@@ -45,6 +48,9 @@ msgstr "Vaakasuora: Oikealta vasemmalle"
 msgid "Time Direction"
 msgstr "Ajan suunta"
 
+msgid "Limit number of people displayed (use 0 for unlimited)"
+msgstr "Rajoita näytettävien henkilöiden määrää (0 = ei rajoitusta)"
+
 msgid "Person theme"
 msgstr "Henkilöteema"
 
@@ -71,6 +77,18 @@ msgstr "Naisen hahmo:"
 
 msgid "Choose female avatar"
 msgstr "Valitse naisen hahmo"
+
+msgid "Unknown avatar:"
+msgstr "Tuntematon avatar:"
+
+msgid "Choose Unknown avatar"
+msgstr "Valitse tuntemattoman avatar"
+
+msgid "Other avatar:"
+msgstr "Muu avatar:"
+
+msgid "Choose Other avatar"
+msgstr "Valitse muu avatar"
 
 msgid "Active person border size"
 msgstr "Aktiivisen henkilön rajauskoko"
@@ -211,6 +229,17 @@ msgstr ""
 msgid "Change active person?"
 msgstr "Vaihdetaanko aktiivihenkilö?"
 
+#, python-brace-format
+msgid ""
+"This graph would contain at least {people_count} people, which exceeds the "
+"limit of {people_limit} people. For performance reasons, at least "
+"{people_missing} people won't be shown. You can change this limit in the "
+"view configuration."
+msgstr ""
+"Tämä kaavio sisältäisi vähintään {people_count} henkilöä, mikä ylittää "
+"{people_limit} henkilön rajan. Suorituskykysyistä ei yli {people_missing} "
+"henkilöä näytetä. Voit muuttaa tätä rajoitusta näkymän asetuksissa."
+
 msgid "Incomplete graph"
 msgstr "Epätäydellinen kaavio"
 
@@ -242,6 +271,9 @@ msgstr "Suorakulmainen"
 msgid "Copy"
 msgstr "Kopioi"
 
+msgid "No Events for this person"
+msgstr "Ei tapahtumia tälle henkilölle"
+
 msgid "Select tags for person"
 msgstr "Valitse tagi henkilölle"
 
@@ -254,11 +286,17 @@ msgstr "Lisää vanhemmat"
 msgid "Set as home person"
 msgstr "Aseta kotihenkilö"
 
+msgid "Show path to home person"
+msgstr "Näytä polku kotihenkilöön"
+
 msgid "Remove from bookmarks"
 msgstr "Poista kirjanmerkeistä"
 
 msgid "Add to bookmarks"
 msgstr "Lisää kirjanmerkkeihin"
+
+msgid "No Events for this family"
+msgstr "Ei tapahtumia tälle perheelle"
 
 msgid "Select tags for family"
 msgstr "Valitse tagi perheelle"
@@ -307,6 +345,9 @@ msgstr "Vaalea"
 msgid "Cartoon"
 msgstr "Väripiirros"
 
+msgid "Modern"
+msgstr "Moderni"
+
 msgid "Persons from current graph"
 msgstr "Henkilöt nykyisestä kaaviosta"
 
@@ -329,3 +370,6 @@ msgstr "Hae..."
 #, python-format
 msgid "<b>%s:</b>"
 msgstr "<b>%s:</b>"
+
+msgid "Partners"
+msgstr "Kumppanit"

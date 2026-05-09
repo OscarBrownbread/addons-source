@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MediaMerge 5.x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-16 15:10-0800\n"
-"PO-Revision-Date: 2025-03-07 06:31+0000\n"
+"POT-Creation-Date: 2025-09-09 18:33+0100\n"
+"PO-Revision-Date: 2026-04-12 04:54+0000\n"
 "Last-Translator: Stephan Paternotte <stephan@paternottes.net>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/gramps-project/"
 "addons/nl/>\n"
@@ -12,16 +12,13 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10.3-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
-msgid "birth abbreviation|b."
-msgstr "afkorting geboorte|b."
+msgid "Network Chart"
+msgstr "Netwerk Grafiek"
 
-msgid "death abbreviation|d."
-msgstr "afkorting overlijden|d."
-
-msgid "marriage abbreviation|m."
-msgstr "afkorting huwelijk|m."
+msgid "Generates a family network chart."
+msgstr "Genereert een familienetwerkgrafiek."
 
 msgid "File exists. Overwrite?"
 msgstr "Bestand bestaat. Overschrijven?"
@@ -316,17 +313,17 @@ msgstr ""
 "aantal afstammelingen uit de boom kunt inschakelen."
 
 msgid "Trim ancestors"
-msgstr "Inkorten aantal voorouders"
+msgstr "Voorouders inkorten"
 
 msgid "All ancestors (parents) of selected individuals will not be shown."
 msgstr ""
 "Alle voorouders (ouders) van geselecteerde personen worden niet getoond."
 
 msgid "Enable trimming of ancestors."
-msgstr "Schakel inkorten van aantal voorouders in."
+msgstr "Inkorten van aantal voorouders inschakelen."
 
 msgid "Enable trimming of ancestors from tree."
-msgstr "Schakel inkorten van aantal voorouders uit de stamboom in."
+msgstr "Inkorten van aantal voorouders uit de stamboom inschakelen."
 
 msgid "Enable trim groups."
 msgstr "Schakel inkorten van aantal groepen in."
@@ -388,7 +385,7 @@ msgstr ""
 "Alle - Elk pad markeren, direct of indirect."
 
 msgid "Show only path(s)"
-msgstr "Laat alleen pad(en) zien"
+msgstr "Alleen pad(en) weergeven"
 
 msgid "Default (none)"
 msgstr "Standaard (Geen)"
@@ -446,9 +443,3 @@ msgstr "Bevestig overschrijven van bestand."
 
 msgid "Enable/disable confirmation of file overwrite."
 msgstr "Schakel de bevestiging van het overschrijven van bestanden in / uit."
-
-msgid "Network Chart"
-msgstr "Netwerk Grafiek"
-
-msgid "Generates a family network chart."
-msgstr "Genereert een familienetwerkgrafiek."

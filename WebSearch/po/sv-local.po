@@ -1,0 +1,153 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-06-01 14:55+0300\n"
+"PO-Revision-Date: 2025-06-05 06:02+0000\n"
+"Last-Translator: Pär Ekholm <github1@m.pekholm.org>\n"
+"Language-Team: Swedish <https://hosted.weblate.org/projects/gramps-project/"
+"addons/sv/>\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.12-dev\n"
+
+msgid "Leave alone"
+msgstr "Lämna ifred"
+
+msgid "Separate"
+msgstr "Separera"
+
+msgid "URL Prefix Replacement"
+msgstr "Byte av URL-prefix"
+
+msgid "(Disabled)"
+msgstr "(Handikappad)"
+
+msgid "Show Links From the Notes"
+msgstr "Visa länkar från anteckningarna"
+
+msgid "Display Columns"
+msgstr "Visa kolumner"
+
+msgid "Display Icons"
+msgstr "Visa ikoner"
+
+msgid "WebSearch"
+msgstr "Webbsökning"
+
+#, python-format
+msgid "Visited: %s"
+msgstr "Besökt: %s"
+
+#, python-format
+msgid "Attribute: %s"
+msgstr "Attribut: %s"
+
+#, python-format
+msgid "Value: %s"
+msgstr "Värde: %s"
+
+#, python-format
+msgid "Loaded from file: %s"
+msgstr "Laddad från fil: %s"
+
+#, python-format
+msgid "Domain: %s"
+msgstr "Domän: %s"
+
+#, python-format
+msgid "Object: %s"
+msgstr "Objekt: %s"
+
+#, python-format
+msgid "Pattern: %s"
+msgstr "Mönster: %s"
+
+#, python-format
+msgid "Object Gramps ID: %s"
+msgstr "Objektets Gramps-ID: %s"
+
+msgid "Link saved to Attribute"
+msgstr "Länk sparad till attribut"
+
+msgid "Place history loaded"
+msgstr "Platshistorik laddad"
+
+msgid "Attribute updated"
+msgstr "Attribut uppdaterat"
+
+msgid "Note updated"
+msgstr "Anteckning uppdaterad"
+
+msgid "Note Link (parsed)"
+msgstr "Anteckningslänk (tolkades)"
+
+msgid "No title"
+msgstr "Ingen titel"
+
+msgid "No data available."
+msgstr "Ingen data tillgänglig."
+
+msgid "Foundation date:"
+msgstr "Grunddatum:"
+
+msgid "Note:"
+msgstr "Notis:"
+
+msgid "Coordinates:"
+msgstr "Koordinater:"
+
+msgid "Full hierarchy"
+msgstr "Fullständig hierarki"
+
+msgid "Place Type:"
+msgstr "Platstyp:"
+
+msgid "Last Retrieved At:"
+msgstr "Senast hämtad vid:"
+
+msgid "Save Coordinates to the Place"
+msgstr "Spara koordinater för platsen"
+
+msgid "Website URL"
+msgstr "Webbplatsens URL"
+
+msgid "Add link to note"
+msgstr "Lägg till länk till anteckning"
+
+msgid "Add link to attribute"
+msgstr "Lägg till länk till attribut"
+
+msgid "Show QR-code"
+msgstr "Visa QR-kod"
+
+msgid "Copy link to clipboard"
+msgstr "Kopiera länken till urklipp"
+
+#, python-format
+msgid "Note #%(id)s has been successfully added"
+msgstr "Notisen #%(id)s lades framgångsrikt till"
+
+msgid "Error creating note"
+msgstr "Fel vid skapande av notis"
+
+msgid "WebSearch Link"
+msgstr "Webbsöklänk"
+
+msgid "Attribute has been successfully added"
+msgstr "Attributet lades framgångsrikt till"
+
+#, python-brace-format
+msgid "Title: {title}"
+msgstr "Titel: {title}"
+
+#, python-brace-format
+msgid "Replaced: {keys}"
+msgstr "Utbytt: {keys}"
+
+#, python-brace-format
+msgid "Empty: {keys}"
+msgstr "Tom: {keys}"

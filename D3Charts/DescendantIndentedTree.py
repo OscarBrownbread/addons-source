@@ -357,8 +357,13 @@ class Printinfo():
                         image_file = os.path.join(self.dest_path, "images",
                                                   self.dest_prefix,
                                                   person.gramps_id + ".jpg")
-                        self.json_fp.write('%s"image_ref": "%s",\n' %
-                            (self.pad_str(gen_pad+1), str(image_ref)))
+                        self.json_fp.write(
+                            '%s"image_ref": "%s",\n'
+                            % (
+                                self.pad_str(gen_pad + 1),
+                                image_ref.replace("\\", "\\\\"),
+                            )
+                        )
                         # Copy media file to images directory
                         # Ensure image directory exists:
                         if not os.path.exists(image_path):
@@ -1371,8 +1376,7 @@ class DescendantIndentedTreeReport(Report):
                 try:
                     os.mkdir(self.dest_path)
                 except Exception as err:
-                    ErrorDialog(_("Failed to create %s: %s") %
-                                (self.dest_path, str(err)),
+                    ErrorDialog(_("Failed to create {target_path}: {message}").format(target_path=self.dest_path, message=str(err)),
                                 parent=self.user.uistate.window)
                     return
             else:
@@ -1497,7 +1501,7 @@ class DescendantIndentedTreeReport(Report):
                 fp.write(outstr)
 
         except IOError as msg:
-            ErrorDialog(_("Failed writing %s: %s") % (self.desthtml, str(msg)),
+            ErrorDialog(_("Failure writing {target_path}: {message}").format(target_path=self.desthtml, message=str(msg)),
                         parent=self.user.uistate.window)
             return
 
@@ -1560,15 +1564,15 @@ class DescendantIndentedTreeReport(Report):
         try:
             self.write_js(self.destjs, self.contraction)
         except IOError as msg:
-            ErrorDialog(_("Failed writing %s: %s") % (self.destjs, str(msg)),
+            ErrorDialog(_("Failure writing {target_path}: {message}").format(target_path=self.destjs, message=str(msg)),
                         parent=self.user.uistate.window)
 
         # Generate <destexpanded>.js customizing based on options selected
         try:
             self.write_js(self.destexpandedjs, 99)
         except IOError as msg:
-            ErrorDialog(_("Failed writing %s: %s") % (self.destexpandedjs,
-                        str(msg)), parent=self.user.uistate.window)
+            ErrorDialog(_("Failure writing {target_path}: {message}").format(target_path=self.destexpandedjs,
+                        message=str(msg)), parent=self.user.uistate.window)
             return
 
         # Generate <dest>.css options selected such as font-size
@@ -1674,7 +1678,7 @@ class DescendantIndentedTreeReport(Report):
                 fp.write('}\n\n')
 
         except IOError as msg:
-            ErrorDialog(_("Failed writing %s: %s") % (self.destcss, str(msg)),
+            ErrorDialog(_("Failure writing {target_path}: {message}").format(target_path=self.destcss, message=str(msg)),
                         parent=self.user.uistate.window)
             return
 
@@ -1694,7 +1698,7 @@ class DescendantIndentedTreeReport(Report):
                 recurse.recurse(generation, self.center_person, None)
 
         except IOError as msg:
-            ErrorDialog(_("Failed writing %s: %s") % (self.destjson, str(msg)),
+            ErrorDialog(_("Failure writing {target_path}: {message}").format(target_path=self.destjson, message=str(msg)),
                         parent=self.user.uistate.window)
             return
 

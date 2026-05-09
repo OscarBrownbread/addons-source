@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Gramps 5.2.0 – mediamerge\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-16 15:10-0800\n"
-"PO-Revision-Date: 2025-03-08 15:16+0000\n"
+"PO-Revision-Date: 2025-08-11 18:01+0000\n"
 "Last-Translator: Avi Markovitz <avi.markovitz@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/gramps-project/"
 "addons/he/>\n"
@@ -13,13 +13,52 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Weblate 5.10.3-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
+
+msgid "People related to <filter>"
+msgstr "אנשים עם שיוך אל <מסנן>"
+
+msgid "Matches people who are related to anybody matched by a person filter"
+msgstr "איתור אנשים הקשורים לכל מי שמתאים למסנן אדם"
+
+msgid "People separated less than <N> degrees of <person>"
+msgstr "אנשים בפער של פחות מ <N> דרגות מ<אדם>"
+
+msgid "Filter rule that matches relatives by degrees of separation"
+msgstr "כלל מסנן לאיתור קרובים לפי דרגות מרחק"
+
+msgid "Matches Sources with values containing the chosen parameters"
+msgstr "איתור מקורות עם ערכים המכילים משתנים שנבחרו"
+
+msgid "Matches people who have more than one set of parents"
+msgstr "איתור אנשים שיש להם יותר מקבוצת הורים אחת"
 
 msgid "People with events with the <role>"
 msgstr "אירועם לאנשים עם <תפקיד>"
 
+msgid "Matches people with an event with a selected role"
+msgstr "איתור אנשים עם אירוע עם תפקיד שנבחר"
+
 msgid "Families with events with the <role>"
 msgstr "אירועם למשפחות עם <תפקיד>"
+
+msgid "Matches families with an event with a selected role"
+msgstr "איתור משפחות עם אירוע עם תפקיד שנבחר"
+
+msgid "Events of families matching a <family filter>"
+msgstr "אירועים של משפחות שתואמות למסנן <מסנן משפחה>"
+
+msgid "Families matching <event filter>"
+msgstr "משפחות שתואמות <מסנן אירוע>"
+
+msgid "Matches families that are matched by an event filter"
+msgstr "איתור משפחות שאותרו על ידי מסנן אירועים"
+
+msgid "Matches families matched by an event filter"
+msgstr "איתור משפחות שאותרו על ידי מסנן אירועים"
+
+msgid "Matches persons which have events of given type and number."
+msgstr "איתור אנשים עם אירועים מסוג וכמות מסויימים."
 
 msgid "Include Parents"
 msgstr "הכללת הורים"
@@ -28,7 +67,7 @@ msgid "Filter people by their age at death"
 msgstr "סינון אנשים לפי גילם בפטירתם"
 
 msgid "Filter rule that matches people by their age at death"
-msgstr "כלל סינון שמתאים לאנשים לפי גילם בפטירתם"
+msgstr "כלל סינון לאיתור לאנשים לפי גיל פטירתם"
 
 msgid "People with events with a selected role"
 msgstr "אירועם לאנשים עם תפקיד שנבחר"
@@ -36,11 +75,14 @@ msgstr "אירועם לאנשים עם תפקיד שנבחר"
 msgid "The active Person"
 msgstr "האדם הפעיל"
 
+msgid "Matches sources with a particular value"
+msgstr "איתור מקורות עם ערך מסויים"
+
 msgid "Active person"
 msgstr "אדם פעיל"
 
 msgid "Matches the active person"
-msgstr "תואם לאדם הפעיל"
+msgstr "איתור האדם הפעיל"
 
 msgid "Age in years at person's death."
 msgstr "גילו של אדם בשנים בעת פטירתו."

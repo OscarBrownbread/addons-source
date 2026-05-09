@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gramps 5.x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-06 08:58-0800\n"
-"PO-Revision-Date: 2025-03-02 14:58+0000\n"
+"POT-Creation-Date: 2025-10-11 21:37+0200\n"
+"PO-Revision-Date: 2026-04-08 15:09+0000\n"
 "Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/gramps-project/"
 "addons/hr/>\n"
@@ -13,13 +13,102 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.10.3-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 msgid "Gramps Web Sync"
-msgstr "Gramps web sinkronizacija"
+msgstr "Gramps Web sinkronizacija"
+
+msgid "Synchronizes a local database with a Gramps Web instance."
+msgstr "Sinkronizira lokalnu bazu podataka s Gramps Web instancom."
+
+msgid "Your user does not have sufficient server permissions to use sync."
+msgstr ""
+"Tvoj korisnik nema dovoljne dozvole na serveru za korištenje sinkronizacije."
+
+msgid "Fetching remote data..."
+msgstr "Dohvaćanje ne-lokalnih zapisa …"
+
+msgid "Unexpected error while applying changes."
+msgstr "Neočekivana greška prilikom primjene promjena."
 
 msgid "Media files are in sync."
 msgstr "Medijske datoteke su sinkronizirane."
+
+#, python-format
+msgid "Successfully downloaded %s media file."
+msgid_plural "Successfully downloaded %s media files."
+msgstr[0] "Broj uspješno preuzetih medijskih datoteka: %s."
+msgstr[1] "Broj uspješno preuzetih medijskih datoteka: %s."
+msgstr[2] "Broj uspješno preuzetih medijskih datoteka: %s."
+
+#, python-format
+msgid "Encountered %s error during download."
+msgid_plural "Encountered %s errors during download."
+msgstr[0] "Tijekom preuzimanja se dogodila %s greška."
+msgstr[1] "Tijekom preuzimanja su se dogodile %s greške."
+msgstr[2] "Tijekom preuzimanja se dogodilo %s greški."
+
+#, python-format
+msgid "Successfully uploaded %s media file."
+msgid_plural "Successfully uploaded %s media files."
+msgstr[0] "Uspješno je prenesena %s medijska datoteka."
+msgstr[1] "Uspješno su prenesene %s medijske datoteke."
+msgstr[2] "Uspješno je preneseno %s medijskih datoteka."
+
+#, python-format
+msgid "Encountered %s error during upload."
+msgid_plural "Encountered %s errors during upload."
+msgstr[0] "Tijekom prijenosa se dogodila %s greška."
+msgstr[1] "Tijekom prijenosa su se dogodile %s greške."
+msgstr[2] "Tijekom prijenosa se dogodilo %s greški."
+
+msgid "Access forbidden. Please check username and password."
+msgstr "Pristup zabranjen. Provjeri korisničko ime i lozinku."
+
+msgid "GrampsWeb service not found. Please check the URL."
+msgstr "GrampsWeb usluga nije pronađena. Provjeri URL."
+
+msgid "Too many requests, please try again in a few seconds."
+msgstr "Previše zahtjeva, pokušaj ponovo za par sekundi."
+
+msgid "GrampsWeb tree is disabled."
+msgstr "GrampsWeb stablo je isključeno."
+
+#, python-format
+msgid "Server error %s. Please check your connection."
+msgstr "Greška servera %s. Provjeri vezu."
+
+msgid "Connection failed. Please check the URL and your internet connection."
+msgstr "Povezivanje nije uspjelo. Provjeri URL i internetsku vezu."
+
+msgid "Invalid server response. Please check the URL."
+msgstr "Nevažeći odgovor servera. Provjeri URL."
+
+#, python-format
+msgid "Unexpected error: %s"
+msgstr "Neočekivana greška: %s"
+
+msgid "Error accessing media object."
+msgstr "Greška pri pristupu medijskom objektu."
+
+msgid "Failed importing downloaded XML file."
+msgstr "Uvoz preuzete XML datoteke nije uspio."
+
+msgid "Comparing local and remote data..."
+msgstr "Uspoređivanje lokalnih i ne-lokalnih podataka …"
+
+msgid "Server authorization error."
+msgstr "Greška autorizacije servera."
+
+msgid "Server authorization error: insufficient permissions."
+msgstr "Greška autorizacije servera: nedovoljne dozvole."
+
+msgid "Error: URL not found."
+msgstr "Greška: URL nije pronađen."
+
+msgid "Unable to synchronize changes to server: objects have been modified."
+msgstr ""
+"Nije moguće sinkronizirati promjene sa serverom: objekti su promijenjeni."
 
 #, python-format
 msgid "Error %s while connecting to server."
@@ -28,17 +117,75 @@ msgstr "Greška %s tijekom povezivanja na server."
 msgid "URL error while connecting to server."
 msgstr "URL greška tijekom povezivanja na server."
 
+msgid "Unable to synchronize changes to server."
+msgstr "Nije moguće sinkronizirati promjene sa serverom."
+
+msgid "Continue without transport encryption?"
+msgstr "Nastaviti bez šifriranja prijenosa?"
+
+msgid ""
+"You have specified a URL with http scheme. If you continue, your password "
+"will be sent in clear text over the network. Use only for local testing!"
+msgstr ""
+"Zadan je URL s http shemom. Ako nastaviš, tvoja će se lozinka poslati u "
+"nešifriranom obliku putem mreže. Koristi samo za lokalno testiranje!"
+
+msgid "Continue with HTTP"
+msgstr "Nastavi s HTTP-om"
+
+msgid "Use HTTPS"
+msgstr "Koristi HTTPS"
+
+msgid ""
+"This tool allows to synchronize the currently opened family tree with a "
+"remote family tree served by Gramps Web.\n"
+"\n"
+"The tool assumes that the two trees are derivatives of each other, i.e. one "
+"of the two was created from a Gramps XML (not GEDCOM!) export of the other.\n"
+"\n"
+"After successful synchronization, the two trees will be identical. "
+"Modifications will be propagated based on timestamps. You will be prompted "
+"for confirmation before any changes are made to the local or remote trees.\n"
+"\n"
+"If you instead want to merge two significantly different trees with the "
+"option to make manual modifications, use the Import Merge Tool instead."
+msgstr ""
+"Ovaj alat omogućuje sinkronizaciju trenutno otvorenog rodoslova s udaljenim "
+"rodoslovom koji poslužuje Gramps Web.\n"
+"\n"
+"Alat pretpostavlja da su ta dva rodoslova međusobne izvedenice, odnosno da "
+"je jedan od njih stvoren iz Gramps XML (ne GEDCOM!) izvoza od drugoga.\n"
+"\n"
+"Nakon uspješne sinkronizacije, oba rodoslova će biti identična. Promjene će "
+"se prenositi na temelju vremenskih oznaka. Prije bilo kakvih promjena na "
+"lokalnom ili udaljenom rodoslovu dobit ćeš upit za potvrdu.\n"
+"\n"
+"Ako umjesto toga želiš spojiti dva znatno različita rodoslova uz mogućnost "
+"ručnih promjena, koristi alat za uvoz i spajanje."
+
+msgid "Server URL: "
+msgstr "URL servera: "
+
 msgid "Bidirectional Synchronization"
 msgstr "Dvosmjerna sinkronizacija"
 
+msgid "Reset remote to local"
+msgstr "Resetiraj ne-lokalne u lokalne podatke"
+
+msgid "Reset local to remote"
+msgstr "Resetiraj lokalne u ne-lokalne podatke"
+
 msgid "Merge"
-msgstr "Sjedini"
+msgstr "Spoji"
 
 msgid "Local changes"
 msgstr "Lokalne promjene"
 
 msgid "Modified"
 msgstr "Promijenjeno"
+
+msgid "Remote changes"
+msgstr "Ne-lokalne promjene"
 
 msgid "Simultaneous changes"
 msgstr "Istovremene promjene"
@@ -53,13 +200,13 @@ msgid "Applying changes to local database ..."
 msgstr "Primjena promjena na lokalnu bazu podataka …"
 
 msgid "No changes to apply to local database."
-msgstr "Nema promjena za lokalnu bazu podataka."
+msgstr "Nema primijenjivih promjena na lokalnu bazu podataka."
 
 msgid "Applying changes to remote database ..."
-msgstr "Primjena promjena na eksternu bazu podataka …"
+msgstr "Primjena promjena na ne-lokalnu bazu podataka …"
 
 msgid "No changes to apply to remote database."
-msgstr "Nema promjena za eksternu bazu podataka."
+msgstr "Nema promjena za ne-lokalnu bazu podataka."
 
 msgid "Successfully applied changes to local database."
 msgstr "Promjene na lokalnoj bazi podataka su uspješno primijenjene."
@@ -68,12 +215,18 @@ msgid "Missing locally"
 msgstr "Nedostaje lokalno"
 
 msgid "Missing remotely"
-msgstr "Nedostaje eksterno"
+msgstr "Nedostaje ne-lokalno"
 
 #, python-format
-msgid "Downloading %s media file(s)"
-msgstr "Preuzimanje medijskih datoteka (%s)"
+msgid "Downloading %s media file"
+msgid_plural "Downloading %s media files"
+msgstr[0] "Preuzima se %s medijska datoteka"
+msgstr[1] "Preuzimaju se %s medijske datoteke"
+msgstr[2] "Preuzimaju se %s medijske datoteke"
 
 #, python-format
-msgid "Uploading %s media file(s)"
-msgstr "Prijenos medijskih datoteka (%s)"
+msgid "Uploading %s media file"
+msgid_plural "Uploading %s media files"
+msgstr[0] "Prenosi se %s medijska datoteka"
+msgstr[1] "Prenose se %s medijske datoteke"
+msgstr[2] "Prenosi se %s medijskih datoteka"

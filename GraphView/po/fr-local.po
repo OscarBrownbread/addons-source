@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: trunk\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-16 15:10-0800\n"
-"PO-Revision-Date: 2025-03-02 13:48+0000\n"
-"Last-Translator: Julien Lepiller <roptat@lepiller.eu>\n"
+"PO-Revision-Date: 2025-04-11 12:50+0000\n"
+"Last-Translator: jmichault <jmt.2000@free.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/gramps-project/"
 "addons/fr/>\n"
 "Language: fr\n"
@@ -12,16 +12,19 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
-"X-Generator: Weblate 5.10.3-dev\n"
+"X-Generator: Weblate 5.11-dev\n"
 
 msgid "Graph View"
 msgstr "Vue Graphique"
+
+msgid "Show IDs"
+msgstr "Afficher les IDs"
 
 msgid "Show avatars"
 msgstr "Afficher les avatars"
 
 msgid "Highlight the home person"
-msgstr "Marquer l’individu central"
+msgstr "Mettre en valeur la souche"
 
 msgid "Show full dates"
 msgstr "Afficher les dates complètes"
@@ -29,11 +32,29 @@ msgstr "Afficher les dates complètes"
 msgid "Show places"
 msgstr "Afficher les lieux"
 
+msgid "Vertical: Top to Bottom"
+msgstr "Vertical : du haut vers le bas"
+
+msgid "Vertical: Bottom to Top"
+msgstr "Vertical : du bas vers le haut"
+
+msgid "Horizontal: Left to Right"
+msgstr "Horizontal : de la gauche vers la droite"
+
+msgid "Horizontal: Right to Left"
+msgstr "Horizontal : de la droite vers la gauche"
+
+msgid "Time Direction"
+msgstr "Direction temporelle"
+
+msgid "Limit number of people displayed (use 0 for unlimited)"
+msgstr "Limite du nombre de personnes affichées (0 pour illimité)"
+
 msgid "Person theme"
 msgstr "Thème d’individu"
 
 msgid "Path color to home person"
-msgstr "Couleur du chemin vers l’individu central"
+msgstr "Couleur du chemin vers la souche"
 
 msgid "Font:"
 msgstr "Police :"
@@ -55,6 +76,24 @@ msgstr "Avatar féminin :"
 
 msgid "Choose female avatar"
 msgstr "Choisir un avatar féminin"
+
+msgid "Unknown avatar:"
+msgstr "Avatar inconnu :"
+
+msgid "Choose Unknown avatar"
+msgstr "Choisir un avatar « Inconnu »"
+
+msgid "Other avatar:"
+msgstr "Avatar « Autre » :"
+
+msgid "Choose Other avatar"
+msgstr "Choisir un avatar « Autre »"
+
+msgid "Active person border size"
+msgstr "Taille de la bordure de l'individu actif"
+
+msgid "Person border size"
+msgstr "Taille de la bordure d'individu"
 
 msgid "Themes"
 msgstr "Thèmes"
@@ -109,7 +148,7 @@ msgid "Zoom to original"
 msgstr "Zoom original"
 
 msgid "Zoom to best fit"
-msgstr "Zoom à l’affichage adapté"
+msgstr "Zoom pour un affichage adapté"
 
 msgid "Go to active person"
 msgstr "Aller à l’individu actif"
@@ -195,6 +234,18 @@ msgstr ""
 msgid "Change active person?"
 msgstr "Voulez-vous changer l’individu actif ?"
 
+#, python-brace-format
+msgid ""
+"This graph would contain at least {people_count} people, which exceeds the "
+"limit of {people_limit} people. For performance reasons, at least "
+"{people_missing} people won't be shown. You can change this limit in the "
+"view configuration."
+msgstr ""
+"Ce graphique comprendrait au moins {people_count} personnes, ce qui dépasse "
+"la limite de {people_limit}. Pour des raisons de performance, au moins "
+"{people_missing} personnes ne seront pas montrés. Vous pouvez modifier cette "
+"limite dans la configuration de vue."
+
 msgid "Incomplete graph"
 msgstr "Graphique incomplet"
 
@@ -206,7 +257,7 @@ msgstr "Image sur la gauche"
 
 #, python-format
 msgid "%s "
-msgstr "et %s "
+msgstr "%s "
 
 msgid "<b>Tags:</b>"
 msgstr "<b>Étiquettes :</b>"
@@ -226,6 +277,9 @@ msgstr "Orthogonal"
 msgid "Copy"
 msgstr "Copie"
 
+msgid "No Events for this person"
+msgstr "Aucun évènement pour cet individu"
+
 msgid "Select tags for person"
 msgstr "Sélectionnez les étiquettes pour l’individu"
 
@@ -236,13 +290,19 @@ msgid "Add parents"
 msgstr "Ajouter les parents"
 
 msgid "Set as home person"
-msgstr "Définir l’individu central"
+msgstr "Définir comme souche"
+
+msgid "Show path to home person"
+msgstr "Montrer le chemin vers la souche"
 
 msgid "Remove from bookmarks"
 msgstr "Enlever des signets"
 
 msgid "Add to bookmarks"
 msgstr "Ajouter aux signets"
+
+msgid "No Events for this family"
+msgstr "Pas d'évènement pour cette famille"
 
 msgid "Select tags for family"
 msgstr "Sélectionnez les étiquettes pour la famille"
@@ -291,6 +351,9 @@ msgstr "Clair"
 msgid "Cartoon"
 msgstr "Esquisse"
 
+msgid "Modern"
+msgstr "Moderne"
+
 msgid "Persons from current graph"
 msgstr "Individus du graphique actuel"
 
@@ -313,4 +376,7 @@ msgstr "Rechercher…"
 
 #, python-format
 msgid "<b>%s:</b>"
-msgstr "<b>%s :</b>"
+msgstr "<b>%s :</b>"
+
+msgid "Partners"
+msgstr "Conjoints"

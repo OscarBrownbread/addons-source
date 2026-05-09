@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: trunk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-06 08:58-0800\n"
-"PO-Revision-Date: 2025-03-02 13:48+0000\n"
-"Last-Translator: Julien Lepiller <roptat@lepiller.eu>\n"
+"POT-Creation-Date: 2025-11-02 10:11+0100\n"
+"PO-Revision-Date: 2025-11-28 18:00+0000\n"
+"Last-Translator: jmichault <jmt.2000@free.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/gramps-project/"
 "addons/fr/>\n"
 "Language: fr\n"
@@ -12,25 +12,28 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
-"X-Generator: Weblate 5.10.3-dev\n"
+"X-Generator: Weblate 5.15-dev\n"
 
 msgid "Display relations and distances with the home person"
-msgstr "Afficher les relations et distances avec l'individu central"
+msgstr "Afficher les relations et distances avec la souche"
 
 msgid "Will display relational informations with the home person"
-msgstr "Affichera les informations relationnelles avec la personne centrale"
+msgstr "Affichera les informations relationnelles avec la souche"
 
 msgid "Relation and distances with root"
 msgstr "Relation et distances avec la racine"
 
-msgid "Folder Chooser"
-msgstr "Sélection d'un répertoire"
+msgid "Select filter to restrict people"
+msgstr "Sélectionne un filtre pour restreindre les individus"
 
-msgid "_Select"
-msgstr "_Sélectionner"
+msgid "Filter rule"
+msgstr "Règle du filtre"
 
-msgid "Please, select a folder"
-msgstr "S'il vous plaît, sélectionnez un répertoire"
+msgid "Select the filter rule"
+msgstr "Sélectionner la règle de filtre"
+
+msgid "Deep generations"
+msgstr "Générations profondes"
 
 msgid "Rel_id"
 msgstr "Id_Rel"
@@ -45,7 +48,7 @@ msgid "down"
 msgstr "bas"
 
 msgid "Common MRA"
-msgstr "n° Anc."
+msgstr "Ancêtre commun"
 
 msgid "Rank"
 msgstr "Rang"
@@ -53,29 +56,50 @@ msgstr "Rang"
 msgid "Period"
 msgstr "Période"
 
+msgid "Shared Subtree"
+msgstr "Sous-arbre partagé"
+
+msgid "Centrality"
+msgstr "Centralité"
+
+msgid "Unique Ancestors"
+msgstr "Ancêtres uniques"
+
+msgid "Surname Diversity"
+msgstr "Diversité du nom de famille"
+
 msgid "Save"
 msgstr "Enregistrer"
+
+msgid "No default person set."
+msgstr "Aucune personne par défaut n'est définie."
 
 msgid "Please wait, filtering..."
 msgstr "Attendez, s'il vous plaît ..."
 
-msgid "No default_person"
-msgstr "Pas de personne de départ (défaut)"
+msgid "Network Metrics"
+msgstr "Métriques du réseau"
+
+msgid "Enabled"
+msgstr "Actif"
+
+msgid "Disabled"
+msgstr "Non-actif"
+
+msgid "Enable or disable family network metrics"
+msgstr "Activer ou désactiver les indicateurs du réseau familial"
 
 msgid "Generating relation map..."
 msgstr "Génération de la table de relation..."
 
-#, python-format
-msgid ""
-"%d/%d \n"
-" %d/%d seconds \n"
-" %d/%d \n"
-"%f|\t%f"
-msgstr ""
-"%d/%d \n"
-" %d/%d secondes \n"
-" %d/%d \n"
-"%f|\t%f"
+msgid "Folder Chooser"
+msgstr "Sélection d'un répertoire"
 
-msgid "You do not have write rights on this folder"
-msgstr "Vous n'avez pas les droits en écriture sur ce répertoire"
+msgid "_Select"
+msgstr "_Sélectionner"
+
+msgid "Please, select a folder"
+msgstr "S'il vous plaît, sélectionnez un répertoire"
+
+msgid "Foldername need"
+msgstr "Nom du dossier nécessaire"

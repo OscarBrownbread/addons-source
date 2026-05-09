@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-06 08:56-0800\n"
-"PO-Revision-Date: 2025-03-08 15:16+0000\n"
+"PO-Revision-Date: 2025-07-26 08:04+0000\n"
 "Last-Translator: Mirko Leonhäuser <mirko@leonhaeuser.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/gramps-project/"
 "addons/de/>\n"
@@ -12,10 +12,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10.3-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 msgid "Check Place Titles"
-msgstr "Ortstitel Überprüfen"
+msgstr "Ortstitel überprüfen"
 
 msgid "Check place titles"
 msgstr "Ortstitel überprüfen"
@@ -24,37 +24,37 @@ msgid "Check Place title"
 msgstr "Ortstitel überprüfen"
 
 msgid "Checking Place Titles"
-msgstr "Überprüfung von Ortstiteln"
+msgstr "Überprüfen von Ortstiteln"
 
 msgid "Looking for place fields"
-msgstr "Suche nach Ortsfeldern"
+msgstr "Suche nach Platzfeldern"
 
 msgid "Differences"
 msgstr "Unterschiede"
 
 msgid "No need modifications"
-msgstr "Keiner benötigt Änderungen"
+msgstr "Keine Änderungen erforderlich"
 
 msgid "No changes need."
 msgstr "Keine Änderungen notwendig."
 
 msgid "Legacy place"
-msgstr "Veraltete Ort"
+msgstr "Historischer Ort"
 
 msgid "Modify Place titles"
-msgstr "Ortstitel Ändern"
+msgstr "Ortstitel ändern"
 
 msgid "Place titles"
 msgstr "Ortstitel"
 
 msgid "Remove content of place title field if it does not match"
-msgstr "Entferne den Inhalt des Ortstitelfeld wenn er nicht passt"
+msgstr "Inhalt des Feldes für den Ortstitel entfernen, wenn er nicht passt"
 
 msgid "Copy content of place title field to a new note."
-msgstr "Kopiere den Inhalt des Ortstitelfeldes in eine neue Notiz."
+msgstr "Kopiere den Inhalt des Feldes Ortstitel in eine neue Notiz."
 
 msgid "Attach a tag on selected places."
-msgstr "Füge eine Markierung ausgewählten Orten hinzu."
+msgstr "Bringt ein Etikett an ausgewählten Orten an."
 
 msgid "column"
 msgstr "Spalte"

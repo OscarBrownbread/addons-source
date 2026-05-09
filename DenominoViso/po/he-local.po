@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gramps 5.2.0 – mediamerge\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-16 15:10-0800\n"
-"PO-Revision-Date: 2025-03-08 15:16+0000\n"
+"POT-Creation-Date: 2025-03-13 23:06+0000\n"
+"PO-Revision-Date: 2026-02-03 09:01+0000\n"
 "Last-Translator: Avi Markovitz <avi.markovitz@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/gramps-project/"
 "addons/he/>\n"
@@ -13,16 +13,59 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Weblate 5.10.3-dev\n"
+"X-Generator: Weblate 5.16-dev\n"
 
 msgid "No Source"
 msgstr "אין מקור"
 
+msgid "onclick"
+msgstr "בהקשת עכבר"
+
+msgid "onmouseover"
+msgstr "ברחוף סמן עכבר מעל"
+
 msgid "Ancestor"
 msgstr "אב קדמון"
 
+msgid "Descendant"
+msgstr "צאצא"
+
+msgid "Fan"
+msgstr "מניפה"
+
+msgid "Growth Spiral"
+msgstr "לוליין צמיחה"
+
+msgid "Mandelbrot Tree"
+msgstr "עץ מנדלברוט"
+
+msgid "Pythagoras Tree"
+msgstr "עץ פיתגורס"
+
+msgid "right to left"
+msgstr "מימין לשמאל"
+
+msgid "left to right"
+msgstr "משמאל לימין"
+
+msgid "top to bottom"
+msgstr "צלמעלה למטה"
+
+msgid "bottom to top"
+msgstr "מלמטה למעלה"
+
+msgid "role"
+msgstr "תפקיד"
+
 msgid "description"
 msgstr "תיאור"
+
+msgid "witnesses"
+msgstr "עדים"
+
+#, python-brace-format
+msgid "Failure writing {target_path}: {message}"
+msgstr "כתיבת {target_path}:{message} כשלה"
 
 msgid "No central person selected"
 msgstr "לא נבחר אדם מרכזי"
@@ -30,56 +73,342 @@ msgstr "לא נבחר אדם מרכזי"
 msgid "Unknown time direction"
 msgstr "כיוון ציר זמן לא ידוע"
 
+msgid "author"
+msgstr "נוצר על ידי"
+
+msgid "publication_info"
+msgstr "מידע פרסום"
+
+msgid "abbreviation"
+msgstr "קיצור"
+
+msgid "volume"
+msgstr "כרך"
+
+msgid "the chart type runs out of bounds"
+msgstr "סוג התרשים חורג מהגבולות"
+
 msgid "Search"
 msgstr "חיפוש"
 
 msgid "in"
 msgstr "ב"
 
+msgid "DenominoViso Options"
+msgstr "אפשרויות DenominoViso"
+
+msgid "The destination file for the html-content."
+msgstr "קובץ היעד לתוכן ה־html."
+
 msgid "Central Person"
 msgstr "אדם מרכזי"
+
+msgid "The central person for the tree"
+msgstr "האדם המרכזי באילן־היוחסין"
+
+msgid "Title of the webpage"
+msgstr "כותרת עמוד המרשתת"
+
+msgid "Any string you wish."
+msgstr "כל מחרוזת שהיא."
+
+msgid "Display mode"
+msgstr "מצב תצוגה"
+
+msgid "Either plot ancestor or descendants graph."
+msgstr "שרטוט תרשים אב קדמון או צאצאים."
+
+msgid "Display type"
+msgstr "סוג מצג"
+
+msgid "The type of graph to create."
+msgstr "סוג התרשים ליצירה."
 
 msgid "Direction of time"
 msgstr "כיוון ציר הזמן"
 
+msgid "Direction in which time increases."
+msgstr "הכיוון שבו הזמן עולה."
+
+msgid "Max chart width (%)"
+msgstr "רוחב תרשים מירבי (%)"
+
+msgid "Width of the tree as fraction of the browser window"
+msgstr "רוחב אילן־היוחסין כשבר של חלון הדפדפן"
+
 msgid "Max chart height (px)"
 msgstr "גובה תרשים מירבי (פיקסל)"
+
+msgid "Height of the tree in pixels."
+msgstr "גובה אילן־היוחסין בפיקסלים."
+
+msgid "Closing remarks"
+msgstr "סגירת הערות"
+
+msgid ""
+"List of strings, free text added at the bottom, for example for a copyright "
+"notice."
+msgstr ""
+"רשימת מחרוזות, מלל חופשי שמתווסף בתחתית העמוד, לדוגמה עבור הצהרת זכויות "
+"יוצרים."
 
 msgid "Include Options"
 msgstr "הכללת אפשרויות"
 
+msgid "Include private records"
+msgstr "לכלול רשומות פרטיות"
+
+msgid "Whether to leave out private data."
+msgstr "האם להחריג נתונים פרטיים."
+
 msgid "Include Events"
 msgstr "הכללת אירועים"
+
+msgid "Whether to include a person's events."
+msgstr "האם לכלול אירועי אדם."
+
+msgid "Include birth children"
+msgstr "לכלול צאצאים מלידה"
+
+msgid "Whether to include the birth of children in the list of events."
+msgstr "האם לכלול לידת צאצים ברשימת האירועים."
 
 msgid "Include death relatives"
 msgstr "הכללת קרובי משפחת נפטר"
 
+msgid ""
+"Whether to include the death of relatives during the lifetime of person."
+msgstr "האם לכלול את מותם של קרובי משפחה במהלך חייו של אדם."
+
 msgid "Include witness note"
 msgstr "הכללת הערת עדים"
+
+msgid ""
+"Whether to include the note belonging to a witness (if the event_format "
+"contains <witnesses>)"
+msgstr "האם לכלול הערה השייכת לעד (אם event_format מכיל <עד>)"
+
+msgid "Whether to include a person's attributes"
+msgstr "האם לכלול תכונות אדם"
+
+msgid "Include Addresses"
+msgstr "לכלול כתובות"
+
+msgid "Whether to include a person's addresses."
+msgstr "האם לכלול את כתובתו של אדם."
 
 msgid "Include Note"
 msgstr "הכללת הערה"
 
+msgid "Whether to include a person's note."
+msgstr "האם לכלול הערה של אדם."
+
+msgid "Include URL"
+msgstr "לכלולל כתובת URL"
+
+msgid "Whether to include a person's internet address."
+msgstr "האם לכלול כתובת מרשתת של אדם."
+
+msgid "Include URL description"
+msgstr "לכלולל תאור כתובת URL"
+
+msgid "Whether to include the description of the first URL"
+msgstr "האם לכלול את תיאור כתובת ה־URL הראשון"
+
 msgid "Include Sources"
 msgstr "הכללת מקורות"
+
+msgid "Whether to include a person's sources."
+msgstr "האם לכלול מקורות של אדם."
+
+msgid "Image Options"
+msgstr "אפשרויות תמונה"
+
+msgid "Include Photos/Images from Gallery"
+msgstr "לכלול תמונה/תצלום מהגלריה"
+
+msgid "Whether to include images"
+msgstr "האם לכלול תמונות"
+
+msgid "Copy Image"
+msgstr "העתקת תמונה"
+
+msgid "Copy the images to a designated directory."
+msgstr "העתקת התמונות למחיצת היעד."
+
+msgid "Images with Attribute"
+msgstr "תמונות עם מאפיינים"
+
+msgid "Determine images with which attributes to in/exclude"
+msgstr "קביעת אילו מאפייני תמונה לכלול או לנחריג"
 
 msgid "Include Image source references"
 msgstr "הכללת איזכורי מקור תמונה"
 
+msgid "Whether to include references for images"
+msgstr "האם לכלול אזכורים לתמונות"
+
+msgid "Source reference attribute"
+msgstr "תכונות אזכורי מקור"
+
+msgid "Image attribute that should be used as source reference"
+msgstr "תכונות תמונה בהן יש להשתמש באזכור מקור"
+
+msgid "Style Options"
+msgstr "אפשרויות סגנון"
+
 msgid "Color of active person:"
 msgstr "צבע האדם הפעיל:"
+
+msgid "RGB-color of geometric shape of the activated person."
+msgstr "צבע RGB של הצורה הגיאומטרית של האדם הפעיל."
+
+msgid "Color of found persons:"
+msgstr "צבע לאנשים שנמצאו:"
+
+msgid "RGB-color of geometric shape of the persons found."
+msgstr "צבע RGB של צורה גיאומטרית של האנשים שנמצאו."
 
 msgid "Color of male persons:"
 msgstr "צבע אדם במגדר זכר:"
 
+msgid "RGB-color of geometric shape of the male persons."
+msgstr "צבע RGB של צורה גיאומטרית של אנשים במגדר זכר."
+
+msgid "Colour of female persons:"
+msgstr "צבע של אנשים במגדר נקבה:"
+
+msgid "RGB-color of geometric shape of the female persons."
+msgstr "צבע RGB של צורה גיאומטרית של אנשים במגדר נקבה."
+
+msgid "Width of rectangle (hrd):"
+msgstr "רוחב מלבן (hrd):"
+
+msgid ""
+"The width of a person rectangle of the regular chart type expressed as "
+"fraction of the horizontal rectangle distance."
+msgstr "רוחב מלבן אדם של סוג תרשים רגיל מוצג כחלק מהמרחק המלבני האופקי."
+
+msgid "Height of rectangle (hrd):"
+msgstr "גובה מלבן (hrd):"
+
+msgid ""
+"The height of a person rectangle of the regular chart type expressed as "
+"fraction of the horizontal rectangle distance."
+msgstr "גובה מלבן־אדם מסוג תרשים רגיל, מבוטא כשבר ממרחק המלבן האופקי."
+
+msgid "Vertical distance of rectangles (hrd):"
+msgstr "מרחק אופקי של מלבנים (hrd):"
+
+msgid ""
+"The vertical distance of person rectangles of the regular chart type "
+"expressed as fraction of the horizontal rectangle distance."
+msgstr ""
+"המרחק האנכי של מלבני האדם של סוג התרשים הרגיל המובא כחלק מהמרחק המלבני "
+"האופקי."
+
+msgid "Extra style settings:"
+msgstr "הגדרות סגנון נוספות:"
+
+msgid "Whatever css style settings are needed."
+msgstr "כל הגדרות סגנון CSS הנדרשות."
+
+msgid "Mouse event handler"
+msgstr "מטפל באירועי עכבר"
+
+msgid "Mouse handler used to interact with visitor of webpage."
+msgstr "מטפל אירועי עכבר נוהג להדד עם מבקרים בעמודי מרשתת."
+
 msgid "Birth relationship linestyle"
 msgstr "סגנון קו קשרי קירבה מסוג לידה"
+
+msgid ""
+"List of lists where each sublist is a list with information about the dash "
+"pattern of lines connecting children to parents."
+msgstr ""
+"רשימת רשימות שבה כל רשימת־משנה היא רשימה עם מידע על דגם קווים מקווים שמחברים "
+"צאצאים להורים."
+
+msgid "Source confidence color"
+msgstr "צבע וודאות מקור"
+
+msgid ""
+"List of lists where each sublist is a list with information on the color to "
+"use for a certain confidence level."
+msgstr ""
+"רשימה של רשימות שבה כל רשימת־משנה היא רשימה עם מידע על הצבע לשימוש עבור רמה "
+"מסוימת של וודאות."
+
+msgid "Event format"
+msgstr "תסדיר אירועים"
+
+msgid "at"
+msgstr "ב"
+
+msgid ""
+"List os strings with placeholders for events. Known placeholders: <type>, "
+"<role>, <date>, <place>, <description>, <witnesses>, <source> and any "
+"<attribute-value>."
+msgstr ""
+"רשימת  מחרוזות שומרי מקום לאירועים. שומרי מקום ידועים: <type>, <role>, "
+"<date>, <place>, <description>, <witnesses>, <source> וכל <attribute-value>."
+
+msgid "Source format"
+msgstr "תסדיר מקור"
+
+msgid ""
+"List of strings with placeholders for sources. Known placeholders: <title>, "
+"<volume>, <author>, <publication_info> and <abbreviation>."
+msgstr ""
+"רשימת  מחרוזות שומרי מקום למקורות. שומרי מקום ידועים: <type>, <role>, "
+"<date>, <place>, <description>, <witnesses>, <source> וכל <attribute-value>."
+
+msgid "restricted to:"
+msgstr "מוגבל:"
+
+msgid "to directory:"
+msgstr "למחיצה:"
 
 msgid "Save images in ..."
 msgstr "שמירת תמונות בתוך ..."
 
+msgid "should be"
+msgstr "צריך להיות"
+
 msgid "Included"
 msgstr "הכללה"
 
+msgid "Excluded"
+msgstr "מוחרג"
+
+msgid "Name HTML-wrapper file"
+msgstr "שם HTML – קובץ עוטפן"
+
+msgid "Save HTML-wrapper file as ..."
+msgstr "שם HTML – קובץ עוטפן בשם..."
+
+msgid "Give a filename ..."
+msgstr "מתן שם לקובץ..."
+
 msgid "Relation type"
 msgstr "סוג יוחסה"
+
+msgid "Use dashed linestyle"
+msgstr "שימוש בסגנון קו מקווקו"
+
+msgid "Dash length"
+msgstr "אורך מקף"
+
+msgid "Inter-dash length"
+msgstr "אורך בין מקפים"
+
+msgid "DenominoViso"
+msgstr "DenominoViso"
+
+msgid ""
+"Generates a web (HTML) page with a graphical representation of ancestors/"
+"descendants (SVG) where details about individuals become visible upon mouse-"
+"events."
+msgstr ""
+"יצירת עמוד (HTML) מרשתת עם ייצוג חזותי של אבות קדמונים / צאצאים (SVG) שבו "
+"פרטי האנשים הופכים גלויים באירועי עכבר."

@@ -1,0 +1,239 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: trunk\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-10-11 21:37+0200\n"
+"PO-Revision-Date: 2026-01-03 18:01+0000\n"
+"Last-Translator: Maël Chiotti "
+"<maelchiotti@users.noreply.hosted.weblate.org>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/gramps-project/"
+"addons/fr/>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"X-Generator: Weblate 5.15.1\n"
+
+msgid "Gramps Web Sync"
+msgstr "Synchronisation Gramps Web"
+
+msgid "Synchronizes a local database with a Gramps Web instance."
+msgstr "Synchronise une base de données locale avec une instance «Gramps Web»."
+
+msgid "Your user does not have sufficient server permissions to use sync."
+msgstr ""
+"Votre utilisateur ne dispose pas des autorisations serveur suffisantes pour "
+"utiliser la synchronisation."
+
+msgid "Fetching remote data..."
+msgstr "Récupération des données distantes…"
+
+msgid "Unexpected error while applying changes."
+msgstr "Erreur inattendue en appliquant les modifications."
+
+msgid "Media files are in sync."
+msgstr "Les fichiers media sont synchronisés."
+
+#, python-format
+msgid "Successfully downloaded %s media file."
+msgid_plural "Successfully downloaded %s media files."
+msgstr[0] "Téléchargement réussi de %s fichier medium."
+msgstr[1] "Téléchargement réussi de %s fichiers media."
+
+#, python-format
+msgid "Encountered %s error during download."
+msgid_plural "Encountered %s errors during download."
+msgstr[0] "%s erreur rencontrée lors du téléchargement."
+msgstr[1] "%s erreurs rencontrées lors du téléchargement."
+
+#, python-format
+msgid "Successfully uploaded %s media file."
+msgid_plural "Successfully uploaded %s media files."
+msgstr[0] "Téléchargement réussi de %s fichier medium."
+msgstr[1] "Téléchargement réussi de %s fichiers media."
+
+#, python-format
+msgid "Encountered %s error during upload."
+msgid_plural "Encountered %s errors during upload."
+msgstr[0] "%s erreur lors du téléchargement."
+msgstr[1] "%s erreurs lors du téléchargement."
+
+msgid "Authentication failed. Please check your username and password."
+msgstr ""
+"L'authentification a échoué. Merci de vérifier votre nom d'utilisateur/trice "
+"et votre mot de passe."
+
+msgid "Access forbidden. Please check username and password."
+msgstr ""
+"L'accès est refusé. Merci de vérifier votre nom d'utilisateur/trice et votre "
+"mot de passe."
+
+msgid "GrampsWeb service not found. Please check the URL."
+msgstr "L'installation GrampsWeb n'a pu être trouvée. Merci de vérifier l'URL."
+
+msgid "Too many requests, please try again in a few seconds."
+msgstr "Il y trop de requêtes, merci d'essayer à nouveau dans un instant."
+
+msgid "GrampsWeb tree is disabled."
+msgstr "L'arbre de GrampsWeb est désactivé."
+
+#, python-format
+msgid "Server error %s. Please check your connection."
+msgstr "Erreur serveur %s. Veuillez vérifier votre connexion."
+
+msgid "Connection failed. Please check the URL and your internet connection."
+msgstr ""
+"Problème de connexion. Merci de vérifier l'adresse URL et votre connexion à "
+"Internet."
+
+msgid "Invalid server response. Please check the URL."
+msgstr "Réponse du serveur incorrecte. Veuillez vérifier l'URL."
+
+#, python-format
+msgid "Unexpected error: %s"
+msgstr "erreur innatendue : %s"
+
+msgid "Error accessing media object."
+msgstr "Erreur en accédant à un objet medium."
+
+msgid "Failed importing downloaded XML file."
+msgstr "Échec du téléchargement du fichier XML."
+
+msgid "Comparing local and remote data..."
+msgstr "Comparaison des données locales et distantes…"
+
+msgid "Server authorization error."
+msgstr "Erreur d'autorisation du serveur."
+
+msgid "Server authorization error: insufficient permissions."
+msgstr "Erreur d'autorisation du serveur : autorisations insuffisantes."
+
+msgid "Error: URL not found."
+msgstr "Erreur : URL non trouvée."
+
+msgid "Unable to synchronize changes to server: objects have been modified."
+msgstr ""
+"Impossible de synchroniser les changements au serveur : les objets ont été "
+"modifiés."
+
+#, python-format
+msgid "Error %s while connecting to server."
+msgstr "Erreur %s en se connectant au serveur."
+
+msgid "URL error while connecting to server."
+msgstr "Erreur d'URL en se connectant au serveur."
+
+msgid "Unable to synchronize changes to server."
+msgstr "Impossible de synchroniser les changements au serveur."
+
+msgid "Continue without transport encryption?"
+msgstr "Continuer sans chiffrement ?"
+
+msgid ""
+"You have specified a URL with http scheme. If you continue, your password "
+"will be sent in clear text over the network. Use only for local testing!"
+msgstr ""
+"Vous avez spécifié une URL http. Si vous continuez, votre mot de passe sera "
+"envoyé en clair sur le réseau. Utilisez seulement pour les tests locaux !"
+
+msgid "Continue with HTTP"
+msgstr "Continuer avec HTTP"
+
+msgid "Use HTTPS"
+msgstr "Utiliser HTTPS"
+
+msgid ""
+"This tool allows to synchronize the currently opened family tree with a "
+"remote family tree served by Gramps Web.\n"
+"\n"
+"The tool assumes that the two trees are derivatives of each other, i.e. one "
+"of the two was created from a Gramps XML (not GEDCOM!) export of the other.\n"
+"\n"
+"After successful synchronization, the two trees will be identical. "
+"Modifications will be propagated based on timestamps. You will be prompted "
+"for confirmation before any changes are made to the local or remote trees.\n"
+"\n"
+"If you instead want to merge two significantly different trees with the "
+"option to make manual modifications, use the Import Merge Tool instead."
+msgstr ""
+"Cet outil permet de synchroniser l'arbre généalogique actuellement ouvert "
+"avec un arbre généalogique distant géré par Gramps Web.\n"
+"\n"
+"L'outil suppose que les deux arbres sont dérivés l'un de l'autre, c'est-à-"
+"dire que l'un a été créé à partir d'une exportation Gramps XML (et non "
+"GEDCOM !) de l'autre.\n"
+"\n"
+"Une fois la synchronisation réussie, les deux arbres seront identiques. Les "
+"modifications seront propagées en fonction des horodatages. Une confirmation "
+"vous sera demandée avant toute modification des arbres locaux ou distants.\n"
+"\n"
+"Si vous souhaitez fusionner deux arbres sensiblement différents avec la "
+"possibilité d'effectuer des modifications manuelles, utilisez plutôt l'outil "
+"d'importation et de fusion."
+
+msgid "Server URL: "
+msgstr "URL du serveur : "
+
+msgid "Bidirectional Synchronization"
+msgstr "Synchronisation bidirectionnelle"
+
+msgid "Reset remote to local"
+msgstr "Réinitialiser du distant vers le local"
+
+msgid "Reset local to remote"
+msgstr "Réinitialiser l'arbre local depuis l'arbre distant"
+
+msgid "Merge"
+msgstr "Fusionner"
+
+msgid "Local changes"
+msgstr "Changements locaux"
+
+msgid "Modified"
+msgstr "Modifié"
+
+msgid "Remote changes"
+msgstr "Changements distants"
+
+msgid "Simultaneous changes"
+msgstr "Changements simultanés"
+
+msgid "Fetching information about media files..."
+msgstr "Obtenir des informations sur les fichiers média..."
+
+msgid "Both trees are the same."
+msgstr "Les deux arbrers sont identiques."
+
+msgid "Applying changes to local database ..."
+msgstr "Application des changements à la base de données locale…"
+
+msgid "No changes to apply to local database."
+msgstr "Aucune modification à appliquer à la base de données locale."
+
+msgid "Applying changes to remote database ..."
+msgstr "Appliquer les modifications à la base de données distante ..."
+
+msgid "No changes to apply to remote database."
+msgstr "Aucun changement à appliquer à la base de données distante."
+
+msgid "Successfully applied changes to local database."
+msgstr "Modifications apportées à la base de données locale avec succès."
+
+msgid "Missing locally"
+msgstr "Manque localement"
+
+msgid "Missing remotely"
+msgstr "Manque sur le serveur distant"
+
+#, python-format
+msgid "Downloading %s media file"
+msgid_plural "Downloading %s media files"
+msgstr[0] "Téléchargement de %s fichier medium"
+msgstr[1] "Téléchargement de %s fichiers media"
+
+#, python-format
+msgid "Uploading %s media file"
+msgid_plural "Uploading %s media files"
+msgstr[0] "Téléchargement de %s fichier medium"
+msgstr[1] "Téléchargement de %s fichiers media"

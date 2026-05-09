@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-16 15:10-0800\n"
-"PO-Revision-Date: 2025-03-06 13:57+0000\n"
+"POT-Creation-Date: 2025-03-13 22:50+0000\n"
+"PO-Revision-Date: 2025-03-24 14:44+0000\n"
 "Last-Translator: Yurii Liubymyi <jurchello@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/gramps-project/"
 "addons/uk/>\n"
@@ -13,7 +13,22 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.10.3-dev\n"
+"X-Generator: Weblate 5.11-dev\n"
+
+msgid "Descendant Book"
+msgstr "Книга нащадків"
+
+msgid "Produces one or more descendant reports based on a supplied query."
+msgstr "Створює один або кілька звітів про нащадків на основі наданого запиту."
+
+msgid "Detailed Descendant Book"
+msgstr "Детальна книга нащадків"
+
+msgid ""
+"Produces one or more detailed descendant reports based on a supplied query."
+msgstr ""
+"Створює один або кілька детальних звітів про нащадків на основі наданого "
+"запиту."
 
 #, python-format
 msgid "sp. see  %(reference)s : %(spouse)s"
@@ -30,13 +45,13 @@ msgstr "Звіт про нащадків"
 msgid "Writing %s reports..."
 msgstr "Записування %s звітів..."
 
-#, python-format
-msgid "%s. Descendants of %s"
-msgstr "%s. Нащадки %s"
+#, python-brace-format
+msgid "{report_count}. Descendants of {name}"
+msgstr "{report_count}. Нащадки {name}"
 
-#, python-format
-msgid "%d. %s"
-msgstr "%d. %s"
+#, python-brace-format
+msgid "{report_count:d}. {name}"
+msgstr "{report_count:d}. {name}"
 
 msgid "Select filter to restrict people that appear in the report"
 msgstr "Виберіть фільтр для обмеження людей, що з'являються у звіті"
@@ -76,21 +91,22 @@ msgstr "Індекс імен"
 msgid "Report, Generation, Person, Name"
 msgstr "Звіт, Покоління, Особа, Ім'я"
 
-#, python-format
-msgid "See Report : %s, Generation : %s, Person : %s"
-msgstr "Див. звіт: %s, Покоління: %s, Особа: %s"
+#, python-brace-format
+msgid "See Report : {report}, Generation : {generation}, Person : {person}"
+msgstr "Див. звіт: {report}, Покоління: {generation}, Особа: {person}"
 
 #, python-format
 msgid "Report appearances for %s"
 msgstr "Згадки у звіті для %s"
 
-#, python-format
-msgid "Spouse of: Report: %s, Generation: %s, Person: %s"
-msgstr "Чоловік/Дружина: Звіт: %s, Покоління: %s, Особа: %s"
+#, python-brace-format
+msgid "Spouse of: Report: {report}, Generation: {generation}, Person: {person}"
+msgstr ""
+"Чоловік/дружина: Звіт: {report}, Покоління: {generation}, Особа: {person}"
 
-#, python-format
-msgid "Report: %s, Generation: %s, Person: %s"
-msgstr "Звіт: %s, Покоління: %s, Особа: %s"
+#, python-brace-format
+msgid "Report: {report}, Generation: {generation}, Person: {person}"
+msgstr "Звіт: {report}, Покоління: {generation}, Особа: {person}"
 
 #, python-format
 msgid "%(event_name)s of %(name)s "
@@ -124,9 +140,9 @@ msgstr "%(event_name)s:"
 msgid " %(event_text)s"
 msgstr " %(event_text)s"
 
-#, python-format
-msgid "Ref: %s. %s"
-msgstr "Посилання: %s. %s"
+#, python-brace-format
+msgid "Ref: {number}. {name}"
+msgstr "№ {number}. {name}"
 
 #, python-format
 msgid "%(name_kind)s: %(name)s%(endnotes)s"
@@ -210,21 +226,6 @@ msgstr "Стиль, що використовується для заголов�
 
 msgid "The style used for the references in the Index of Places."
 msgstr "Стиль, що використовується для посилань в індексі місць."
-
-msgid "Descendant Book"
-msgstr "Книга нащадків"
-
-msgid "Produces one or more descendant reports based on a supplied query."
-msgstr "Створює один або кілька звітів про нащадків на основі наданого запиту."
-
-msgid "Detailed Descendant Book"
-msgstr "Детальна книга нащадків"
-
-msgid ""
-"Produces one or more detailed descendant reports based on a supplied query."
-msgstr ""
-"Створює один або кілька детальних звітів про нащадків на основі наданого "
-"запиту."
 
 #, python-format
 msgid "Deep pruning ascendants from %s people..."

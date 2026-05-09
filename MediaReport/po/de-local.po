@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-08 16:41+0000\n"
-"PO-Revision-Date: 2025-03-08 15:16+0000\n"
+"POT-Creation-Date: 2025-03-09 22:38+0000\n"
+"PO-Revision-Date: 2025-10-07 09:02+0000\n"
 "Last-Translator: Mirko Leonhäuser <mirko@leonhaeuser.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/gramps-project/"
 "addons/de/>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10.3-dev\n"
+"X-Generator: Weblate 5.14-dev\n"
 
 msgid "Media Report"
 msgstr "Medienbericht"
@@ -24,42 +24,42 @@ msgid "INFO"
 msgstr "INFO"
 
 msgid "You have to select an image to generate this report."
-msgstr "Um diesen Bericht zu erstellen, muss ein Bild ausgewählt werden."
+msgstr "Du musst ein Bild auswählen, um diesen Bericht zu erstellen."
 
 msgid ""
 "You have to select a custom note or uncheck the option 'include custom note' "
 "to generate this report."
 msgstr ""
-"Um diesen Bericht zu erstellen, muss ein benutzerdefinierte Notiz ausgewählt "
-"werden, oder die Option ‚Benutzerdefinierte Notiz aufnehmen‘ deaktiviert "
-"werden."
+"Du musst eine benutzerdefinierte Notiz auswählen oder die Option "
+"„Benutzerdefinierte Notiz einbeziehen” deaktivieren, um diesen Bericht zu "
+"erstellen."
 
 msgid "This report only supports PDF as output file format."
-msgstr "Dieser Bericht unterstützt nur PDF als Ausgangsformat."
+msgstr "Dieser Bericht unterstützt nur PDF als Ausgabeformat."
 
 msgid "General:"
 msgstr "Allgemeines:"
 
 msgid "Image type:"
-msgstr "Art der Bilder:"
+msgstr "Bildtyp:"
 
 msgid "Heading"
 msgstr "Überschrift"
 
 msgid "Select a media file for this report"
-msgstr "Mediendatei für diesen Bericht wählen"
+msgstr "Wähle eine Mediendatei für diesen Bericht aus"
 
 msgid "Custom note"
 msgstr "Benutzerdefinierte Notiz"
 
 msgid "Select a note for this report"
-msgstr "Notiz für diesen Bericht auswählen"
+msgstr "Wähle eine Notiz für diesen Bericht aus"
 
 msgid "Include custom note"
-msgstr "Benutzerdefinierte Notiz einbeziehen"
+msgstr "Benutzerdefinierte Notiz hinzufügen"
 
 msgid "The custom note will be included"
-msgstr "Benutzerdefinierte Notiz wird einbezogen"
+msgstr "Die benutzerdefinierte Notiz wird hinzugefügt"
 
 msgid "Include referenced people"
 msgstr "Referenzierte Personen einbeziehen"
@@ -71,7 +71,7 @@ msgid "Include media data"
 msgstr "Mediendaten einbeziehen"
 
 msgid "Tags, notes and attributes will be included"
-msgstr "Markierungen, Notizen und Attribute werden einbezogen"
+msgstr "Etiketten, Notizen und Attribute werden enthalten sein"
 
 msgid "Media width"
 msgstr "Medienbreite"
@@ -83,6 +83,6 @@ msgstr "Maximale Medienbreite in % der verfügbaren Seitenbreite."
 msgid "Media height"
 msgstr "Medienhöhe"
 
-#, python-format
+#, no-python-format
 msgid "Maximum media height in % of available page height."
 msgstr "Maximale Medienhöhe in % der verfügbaren Seitenhöhe."

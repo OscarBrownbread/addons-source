@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: GRAMPS 3.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-16 15:10-0800\n"
-"PO-Revision-Date: 2025-03-09 22:01+0000\n"
-"Last-Translator: Michał Stojek <stojex@gmail.com>\n"
+"PO-Revision-Date: 2025-08-23 15:02+0000\n"
+"Last-Translator: Krystian Safjan <ksafjan@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/gramps-project/"
 "addons/pl/>\n"
 "Language: pl\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.10.3-dev\n"
+"X-Generator: Weblate 5.13\n"
 "X-Poedit-Language: Polish\n"
 "X-Poedit-Country: POLAND\n"
 "X-Poedit-Basepath: .\n"
@@ -30,6 +30,12 @@ msgstr "Źródło do usunięcia lub/i dodania"
 
 msgid "Remove previously added events, notes, and source"
 msgstr "Usuń wcześniej dodane wydarzenia, notatki i źródło"
+
+msgid ""
+"Remove calculated events, notes, and source; occurs immediately on Execute"
+msgstr ""
+"Usuń obliczone zdarzenia, notatki i źródło; następuje natychmiast po "
+"wykonaniu"
 
 msgid "Do not add birth events"
 msgstr "Nie dodawaj wydarzeń związanych z urodzeniem"
@@ -79,6 +85,43 @@ msgstr "Skrajności (przed i po)"
 msgid "Dates on events are either about or after/before"
 msgstr "Daty wydarzeń są albo zbliżone, albo następujące przed/po"
 
+msgid ""
+"The Calculate Estimated Dates Tool is used to add and remove birth and death "
+"events for people that are missing these events.\n"
+"\n"
+"To use:\n"
+"1. Go to the Options tab\n"
+"2. Check the [ ] Remove option to remove previous estimates\n"
+"3. Select the Add date options to date events with or without dates\n"
+"4. Click on Execute\n"
+"5. Select the people with which to add events\n"
+"6. Click on 'Add Selected Events' button to create\n"
+"\n"
+"NOTES: if you decide to make an event permanent, remove it from the Source. "
+"Otherwise, it will get removed the next time you automatically remove these "
+"events.\n"
+"\n"
+"You may have to run the tool repeatedly (without removing previous events) "
+"to add all of the events possible."
+msgstr ""
+"Narzędzie Obliczania Dat Szacunkowych służy do dodawania i usuwania wydarzeń "
+"narodzin i śmierci dla osób, które nie mają tych wydarzeń.\n"
+"\n"
+"Sposób użycia:\n"
+"1. Przejdź do zakładki Opcje\n"
+"2. Zaznacz opcję [ ] Usuń, aby usunąć poprzednie szacunki\n"
+"3. Wybierz opcje Dodaj datę, aby datować wydarzenia z datami lub bez\n"
+"4. Kliknij Wykonaj\n"
+"5. Wybierz osoby, dla których dodać wydarzenia\n"
+"6. Kliknij przycisk 'Dodaj wybrane wydarzenia', aby utworzyć\n"
+"\n"
+"UWAGI: jeśli zdecydujesz się uczynić wydarzenie trwałym, usuń je ze Źródła. "
+"W przeciwnym razie zostanie usunięte następnym razem, gdy automatycznie "
+"usuniesz te wydarzenia.\n"
+"\n"
+"Możesz musieć uruchomić narzędzie wielokrotnie (bez usuwania poprzednich "
+"wydarzeń), aby dodać wszystkie możliwe wydarzenia."
+
 msgid "Calculate Estimated Dates"
 msgstr "Obliczanie dat szacunkowych"
 
@@ -93,6 +136,16 @@ msgstr "Przełącz wybór"
 
 msgid "Add Selected Events"
 msgstr "Dodaj wybrane wydarzenia"
+
+msgid "Remove Events, Notes, and Source and Reselect Data"
+msgstr "Usuń zdarzenia, notatki i źródło oraz ponownie wybierz dane"
+
+msgid ""
+"Are you sure you want to remove previous events, notes, and source and "
+"reselect data?"
+msgstr ""
+"Czy na pewno chcesz usunąć poprzednie zdarzenia, notatki i źródła oraz "
+"ponownie wybrać dane?"
 
 msgid "Remove and Run Select Again"
 msgstr "Usuń i uruchom ponownie Wybierz"
@@ -110,14 +163,20 @@ msgid "Evidence"
 msgstr "Dowód"
 
 msgid "Relative"
-msgstr "Krewni"
+msgstr "Krewny"
 
 msgid "Processing...\n"
 msgstr "Przetwarzanie...\n"
 
+msgid "Removing old estimations... "
+msgstr "Usuwanie starych szacunków... "
+
 #, python-format
 msgid "Removing '%s'..."
 msgstr "Usuwanie '%s'..."
+
+msgid "done!\n"
+msgstr "gotowe!\n"
 
 msgid ""
 "Selecting... \n"
@@ -146,11 +205,19 @@ msgid "Adding events '%s'..."
 msgstr "Dodawanie zdarzeń '%s'..."
 
 #, python-format
+msgid "Added birth event based on %(evidence)s, from %(name)s"
+msgstr "Dodano zdarzenie urodzenia na podstawie %(evidence)s, z %(name)s"
+
+#, python-format
 msgid "Added birth event based on %s"
 msgstr "Dodano wydarzenie urodzenia na podstawie %s"
 
 msgid "Estimated birth date"
-msgstr "Szacowana data śmierci"
+msgstr "Szacowana data urodzenia"
+
+#, python-format
+msgid "Added death event based on %(evidence)s, from %(person)s"
+msgstr "Dodano zdarzenie śmierci na podstawie %(evidence)s, od %(person)s"
 
 #, python-format
 msgid "Added death event based on %s"
@@ -158,6 +225,9 @@ msgstr "Dodano zdarzenie śmierci na podstawie %s"
 
 msgid "Estimated death date"
 msgstr "Szacowana data śmierci"
+
+msgid " Done! Committing..."
+msgstr " Gotowe! Zatwierdzanie..."
 
 #, python-format
 msgid "Added %d events."

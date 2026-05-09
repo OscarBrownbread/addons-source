@@ -238,7 +238,6 @@ class GrampsWebSyncTool(BatchTool, ManagedWindow):
         self.assistant.set_page_title(page, title)
         self.assistant.set_page_type(page, page_type)
 
-
     def handle_done_syncing_dbs(self):
         """Handle the completion of syncing the databases."""
         self.save_timestamp()
@@ -246,25 +245,30 @@ class GrampsWebSyncTool(BatchTool, ManagedWindow):
         self.files_missing_local = self.get_missing_files_local()
         self.assistant.next_page()
 
-
     def prepare(self, assistant, page):
         """Run page preparation code."""
         page.update_complete()
         if page == self.diff_progress_page:
+            # Clear any previous login error when starting fresh
+            self.loginpage.clear_error()
+
+            # Try to connect and authenticate
             self.save_credentials()
             url, username, password = self.get_credentials()
-            self._api: WebApiHandler | None = self.handle_server_errors(
-                WebApiHandler, url, username, password, None
-            )
-            if self._api is None:
+            if not self.test_connection(url, username, password):
+                # Connection failed, go back to login page
+                self.assistant.set_current_page(1)  # Login page index
                 return None
+
             if "ViewPrivate" not in self.api.get_permissions():
-                self.handle_error(
+                self.loginpage.show_error(
                     _(
-                        f"Your user does not have sufficient server permissions to use sync."
+                        "Your user does not have sufficient server permissions to use sync."
                     )
                 )
+                self.assistant.set_current_page(1)  # Go back to login page
                 return None
+
             self.diff_progress_page.label.set_text(_("Fetching remote data..."))
             t = threading.Thread(target=self.async_compare_dbs)
             t.start()
@@ -283,7 +287,7 @@ class GrampsWebSyncTool(BatchTool, ManagedWindow):
                     self.handle_error(
                         _("Unexpected error while applying changes.") + f" {e}"
                     )
-                
+
             # now, get missing media files
         elif page == self.file_confirmation:
             if self.files_missing_local:
@@ -345,6 +349,56 @@ class GrampsWebSyncTool(BatchTool, ManagedWindow):
 
             self.conclusion.set_complete()
 
+    def test_connection(self, url: str, username: str, password: str) -> bool:
+        """Test the connection and authentication. Return True if successful."""
+        try:
+            # Try to create API handler
+            self._api = WebApiHandler(url, username, password, None)
+
+            # Test the connection by making a simple API call
+            self.api.get_permissions()
+            return True
+
+        except HTTPError as exc:
+            if exc.code == 401:
+                self.loginpage.show_error(
+                    _("Authentication failed. Please check your username and password.")
+                )
+            elif exc.code == 403:
+                self.loginpage.show_error(
+                    _("Access forbidden. Please check username and password.")
+                )
+            elif exc.code == 404:
+                self.loginpage.show_error(
+                    _("GrampsWeb service not found. Please check the URL.")
+                )
+            elif exc.code == 429:
+                self.loginpage.show_error(
+                    _("Too many requests, please try again in a few seconds.")
+                )
+            elif exc.code == 503:
+                self.loginpage.show_error(_("GrampsWeb tree is disabled."))
+            else:
+                self.loginpage.show_error(
+                    _("Server error %s. Please check your connection.") % exc.code
+                )
+            return False
+        except URLError:
+            self.loginpage.show_error(
+                _(
+                    "Connection failed. Please check the URL and your internet connection."
+                )
+            )
+            return False
+        except ValueError:
+            self.loginpage.show_error(
+                _("Invalid server response. Please check the URL.")
+            )
+            return False
+        except Exception as e:
+            self.loginpage.show_error(_("Unexpected error: %s") % str(e))
+            return False
+
     def handle_files_unchanged(self):
         self.conclusion.unchanged = True
         self.assistant.next_page()
@@ -387,9 +441,13 @@ class GrampsWebSyncTool(BatchTool, ManagedWindow):
             obj = self.db1.get_media_from_handle(handle)
         except HandleError:
             self.handle_error(_("Error accessing media object."))
-            return
+            return False
         path = media_path_full(self.db1, obj.get_path())
-        return self.api.download_media_file(handle=handle, path=path)
+        try:
+            return self.api.download_media_file(handle=handle, path=path)
+        except Exception as e:
+            LOG.warning(f"Failed to download media file {obj.gramps_id}: {e}")
+            return False
 
     def upload_files(self):
         """Upload media files missing remotely."""
@@ -422,10 +480,10 @@ class GrampsWebSyncTool(BatchTool, ManagedWindow):
 
     def handle_error(self, message):
         """Handle an error message during sync."""
-        LOG.error(message)
+        LOG.warning(message)
         self.conclusion.error = True
         self.assistant.next_page()
-        self.conclusion.label.set_text(message)  #
+        self.conclusion.label.set_text(message)
         self.conclusion.set_complete()
 
     def handle_unchanged(self):
@@ -445,18 +503,29 @@ class GrampsWebSyncTool(BatchTool, ManagedWindow):
         path = self.handle_server_errors(self.api.download_xml)
         if path is None:
             return
+        LOG.debug(f"The file name of the downloaded file is: {path}")
         LOG.debug("Importing Gramps XML file.")
         db2 = import_as_dict(str(path), self._user)
         if db2 is None:
             self.handle_error(_("Failed importing downloaded XML file."))
             return
-        else:
-            LOG.debug("Successfully imported Gramps XML file.")
+        LOG.debug("Successfully imported Gramps XML file.")
         path.unlink()  # delete temporary file
         self.db2 = db2
         self.diff_progress_page.label.set_text(_("Comparing local and remote data..."))
         LOG.info("Comparing local and remote data...")
         timestamp = self.config.get("credentials.timestamp") or None
+        from datetime import datetime
+
+        LOG.debug(
+            "Loading last sync timestamp from config: %s (%s)",
+            timestamp,
+            (
+                datetime.fromtimestamp(timestamp).strftime("%Y-%m-%d %H:%M:%S %Z")
+                if timestamp
+                else "None"
+            ),
+        )
         self._sync = WebApiSyncDiffHandler(
             self.db1, self.db2, user=self._user, last_synced=timestamp
         )
@@ -476,7 +545,11 @@ class GrampsWebSyncTool(BatchTool, ManagedWindow):
     def _async_transfer_media(self):
         """Upload/download media files."""
         self.handle_server_errors(self.download_files)
+        if self.conclusion.error:
+            return
         self.handle_server_errors(self.upload_files)
+        if self.conclusion.error:
+            return
         self.file_progress_page.set_complete()
         self.assistant.next_page()
 
@@ -505,8 +578,10 @@ class GrampsWebSyncTool(BatchTool, ManagedWindow):
         except URLError:
             self.handle_error(_("URL error while connecting to server."))
             return None
-        except ValueError:
-            self.handle_error(_("Error while parsing response from server."))
+        except ValueError as exc:
+            self.handle_error(
+                f"{_('Unable to synchronize changes to server.')} ({exc})"
+            )
             return None
 
     def save_credentials(self) -> None:
@@ -569,22 +644,25 @@ class GrampsWebSyncTool(BatchTool, ManagedWindow):
                     LOG.debug("No changes to apply to local database.")
                 self.sync.commit_actions(actions, trans1, trans2)
                 self.sync_progress_page.handle_local_sync_complete(actions)
-                # force the sync if mode is reset
-                force = self.confirmation.sync_mode in {
-                    MODE_RESET_TO_LOCAL,
-                    MODE_RESET_TO_REMOTE,
-                }
+                # force the sync for all modes: the server-side "object has changed"
+                # check compares against the XML-round-tripped object, which often
+                # differs from the live server object due to serialization artifacts,
+                # causing false-positive 409 conflicts even when no real concurrent
+                # edit has occurred.
+                force = True
                 lang = self.api.get_lang()
                 payload = transaction_to_json(trans2, lang)
-        GLib.idle_add(
-            self.async_commit_actions_to_remote, payload, force
-        )
+        GLib.idle_add(self.async_commit_actions_to_remote, payload, force)
 
-    def async_commit_actions_to_remote(self, payload: dict[str, "Any"], force: bool) -> None:
+    def async_commit_actions_to_remote(
+        self, payload: dict[str, "Any"], force: bool
+    ) -> None:
         """Commit all changes to the remote database."""
         GLib.idle_add(self._async_commit_actions_to_remote, payload, force)
 
-    def _async_commit_actions_to_remote(self, payload: dict[str, "Any"], force: bool) -> None:
+    def _async_commit_actions_to_remote(
+        self, payload: dict[str, "Any"], force: bool
+    ) -> None:
         """Upload/download media files."""
         LOG.debug("Committing changes to remote database.")
         self.handle_server_errors(
@@ -593,6 +671,8 @@ class GrampsWebSyncTool(BatchTool, ManagedWindow):
             force,
             self.sync_progress_page.update_api_progress,
         )
+        if self.conclusion.error:
+            return
         self.handle_done_syncing_dbs()
 
     def save_timestamp(self):
@@ -600,7 +680,9 @@ class GrampsWebSyncTool(BatchTool, ManagedWindow):
         # self.config.set("credentials.timestamp", self._download_timestamp)
         timestamp = datetime.now().timestamp()
         LOG.debug(
-            "Saving current time stamp (%s) as last successful sync time.", timestamp
+            "Saving current time stamp (%s) as last successful sync time (%s).",
+            timestamp,
+            datetime.fromtimestamp(timestamp).strftime("%Y-%m-%d %H:%M:%S %Z"),
         )
         self.config.set("credentials.timestamp", timestamp)
         self.config.save()
@@ -641,7 +723,8 @@ class Page(Gtk.Box):
         """Set the current page's complete status."""
         page_number = self.assistant.get_current_page()
         current_page = self.assistant.get_nth_page(page_number)
-        self.assistant.set_page_complete(current_page, self.complete)
+        if current_page is not None:
+            self.assistant.set_page_complete(current_page, self.complete)
 
 
 class IntroductionPage(Page):
@@ -714,9 +797,30 @@ class LoginPage(Page):
         self.password.set_input_purpose(Gtk.InputPurpose.PASSWORD)
         grid.attach(self.password, 1, 2, 1, 1)
 
+        # Error message label - initially hidden
+        self.error_label = Gtk.Label()
+        self.error_label.set_line_wrap(True)
+        self.error_label.set_max_width_chars(60)
+        self.error_label.get_style_context().add_class("error")
+        self.error_label.set_no_show_all(True)  # Don't show when show_all() is called
+        self.error_label.hide()
+        grid.attach(self.error_label, 0, 3, 2, 1)
+
+        # Connect entry change events
         self.url.connect("changed", self.on_entry_changed)
         self.username.connect("changed", self.on_entry_changed)
         self.password.connect("changed", self.on_entry_changed)
+
+    def show_error(self, message: str):
+        """Display an error message on the login page."""
+        self.error_label.set_markup(f"<b>Error:</b> {message}")
+        self.error_label.show()
+        self.update_complete()
+
+    def clear_error(self):
+        """Clear any displayed error message."""
+        self.error_label.hide()
+        self.update_complete()
 
     @property
     def complete(self):
@@ -728,6 +832,10 @@ class LoginPage(Page):
         return False
 
     def on_entry_changed(self, widget):
+        """Handle changes to entry fields."""
+        # Clear error when user starts typing
+        if self.error_label.get_visible():
+            self.clear_error()
         self.update_complete()
 
 
@@ -906,7 +1014,6 @@ class SyncProgressPage(Page):
         while Gtk.events_pending():
             Gtk.main_iteration()
 
-
     def prepare(self, actions: Actions):
         if len(actions) == 0:
             self.label.set_text(_("Both trees are the same."))
@@ -920,10 +1027,14 @@ class SyncProgressPage(Page):
             self.label.set_text(_("No changes to apply to local database."))
         if has_remote_actions(actions):
             self.label_progressbar_api.show()
-            self.label_progressbar_api.set_text(_("Applying changes to remote database ..."))
+            self.label_progressbar_api.set_text(
+                _("Applying changes to remote database ...")
+            )
             self.progressbar_api.show()
         else:
-            self.label_progressbar_api.set_text(_("No changes to apply to remote database."))
+            self.label_progressbar_api.set_text(
+                _("No changes to apply to remote database.")
+            )
             self.progressbar_api.hide()
 
     def handle_local_sync_complete(self, actions: Actions) -> None:

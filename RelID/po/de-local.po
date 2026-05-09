@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-06 08:58-0800\n"
-"PO-Revision-Date: 2025-03-08 15:16+0000\n"
+"POT-Creation-Date: 2025-11-02 10:11+0100\n"
+"PO-Revision-Date: 2025-11-22 18:51+0000\n"
 "Last-Translator: Mirko Leonhäuser <mirko@leonhaeuser.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/gramps-project/"
 "addons/de/>\n"
@@ -12,25 +12,31 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10.3-dev\n"
+"X-Generator: Weblate 5.15-dev\n"
 
 msgid "Display relations and distances with the home person"
-msgstr "Zeigt Beziehungen und Entfernungen zu Hauptperson"
+msgstr "Anzeige von Beziehungen und Entfernungen zur Hauptperson"
 
 msgid "Will display relational informations with the home person"
-msgstr "Zeigt relationale Informationen zur Hauptperson an"
+msgstr "Zeigt Informationen über die Beziehung zur Hauptperson an"
 
 msgid "Relation and distances with root"
-msgstr "Beziehung und Entfernungen zur Wurzel"
+msgstr "Beziehung und Abstände zur Wurzel"
 
-msgid "Folder Chooser"
-msgstr "Ordnerauswahl"
+msgid "Select filter to restrict people"
+msgstr "Filter wählen, um Personen einzugrenzen"
 
-msgid "_Select"
-msgstr "_Auswählen"
+msgid "Filter rule"
+msgstr "Filterregel"
 
-msgid "Please, select a folder"
-msgstr "Bitte wähle einen Ordner"
+msgid "Select the filter rule"
+msgstr "Wähle die Filterregel"
+
+msgid "Deep generations"
+msgstr "Tiefgehende Generationen"
+
+msgid "How deep should we go?"
+msgstr "Wie tief sollen wir gehen?"
 
 msgid "Rel_id"
 msgstr "Bez_id"
@@ -53,29 +59,92 @@ msgstr "Rang"
 msgid "Period"
 msgstr "Zeitraum"
 
+msgid "Shared Subtree"
+msgstr "Gemeinsamer Teilbaum"
+
+msgid "Centrality"
+msgstr "Zentralität"
+
+msgid "Unique Ancestors"
+msgstr "Einzigartige Vorfahren"
+
+msgid "Surname Diversity"
+msgstr "Nachnamendiversität"
+
 msgid "Save"
 msgstr "Speichern"
 
-msgid "Please wait, filtering..."
-msgstr "Bitte warten, filtere..."
+msgid "Quit"
+msgstr "Beenden"
 
-msgid "No default_person"
-msgstr "Keine Standard_person"
+msgid "No default person set."
+msgstr "Keine Standardperson gesetzt."
+
+msgid "Please wait, filtering..."
+msgstr "Bitte warten, filtern..."
+
+msgid "Network Metrics"
+msgstr "Netzwerkmetriken"
+
+msgid "Enabled"
+msgstr "Aktiviert"
+
+msgid "Disabled"
+msgstr "Behindert"
+
+msgid "Enable or disable family network metrics"
+msgstr "Familiennetzwerkmetriken aktivieren oder deaktivieren"
 
 msgid "Generating relation map..."
-msgstr "Erstelle Beziehungenkarte..."
+msgstr "Beziehungskarte erzeugen..."
+
+msgid ""
+"\n"
+"Filtering\tCurrent match\t\tTime of pass\n"
+msgstr ""
+"\n"
+"Filterung\tAktueller Treffer\t\tDurchlaufzeit\n"
 
 #, python-format
-msgid ""
-"%d/%d \n"
-" %d/%d seconds \n"
-" %d/%d \n"
-"%f|\t%f"
-msgstr ""
-"%d/%d \n"
-" %d/%d Sekunden \n"
-" %d/%d \n"
-"%f|\t%f"
+msgid "%d/%d \t\t %d/%d \t\t%f"
+msgstr "%d/%d \t\t %d/%d \t\t%f"
 
-msgid "You do not have write rights on this folder"
-msgstr "Du hast keine Schreibrechte für diesen Ordner"
+msgid "Total of handled entries : {len(self.stats_list)}\n"
+msgstr "Gesamte behandelte Einträge: {len(self.stats_list)}\n"
+
+msgid "Folder Chooser"
+msgstr "Ordnerauswahl"
+
+msgid "_Select"
+msgstr "_Auswählen"
+
+msgid "Please, select a folder"
+msgstr "Bitte wähle einen Ordner"
+
+msgid "Foldername need"
+msgstr "Ordnername erforderlich"
+
+msgid "Foldername will be used for saving the content."
+msgstr "Ordnername wird zum Speichern des Inhalts verwendet."
+
+msgid "Did you set a foldername?"
+msgstr "Hast du einen Ordnernamen festgelegt?"
+
+msgid "Cannot set a valid location."
+msgstr "Es kann kein gültiger Speicherort festgelegt werden."
+
+#, python-brace-format
+msgid "Data saved to : {filename}"
+msgstr "Daten gespeichert unter: {filename}"
+
+msgid "Failed to save data."
+msgstr "Speichern der Daten fehlgeschlagen."
+
+msgid "Relationships Map and Tab"
+msgstr "Beziehungskarte und Registerkarte"
+
+msgid "Enable family network metrics"
+msgstr "Familiennetzwerkmetriken aktivieren"
+
+msgid "Whether to calculate and display family network metrics."
+msgstr "Ob Familiennetzwerkmetriken berechnet und angezeigt werden sollen."

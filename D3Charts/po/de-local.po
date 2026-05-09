@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-16 15:10-0800\n"
-"PO-Revision-Date: 2025-03-08 15:16+0000\n"
+"POT-Creation-Date: 2025-03-13 23:29+0000\n"
+"PO-Revision-Date: 2025-04-11 09:13+0000\n"
 "Last-Translator: Mirko Leonhäuser <mirko@leonhaeuser.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/gramps-project/"
 "addons/de/>\n"
@@ -12,25 +12,25 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10.3-dev\n"
+"X-Generator: Weblate 5.11-dev\n"
 
-#, python-format
-msgid "Failed writing %s: %s"
-msgstr "Fehler beim Schreiben %s: %s"
+#, python-brace-format
+msgid "Failure writing {target_path}: {message}"
+msgstr "Fehler beim Schreiben von {target_path}: {message}"
 
 #, python-format
 msgid "Failed to create directory structure : %s"
-msgstr "Fehler beim erstellen der Verzeichnisstruktur: %s"
+msgstr "Verzeichnisstruktur konnte nicht erstellt werden: %s"
 
 #, python-format
 msgid "Failed to copy web files : %s"
-msgstr "Fehler beim Kopieren von Webdateien: %s"
+msgstr "Fehler beim Kopieren von Webdateien : %s"
 
 msgid "Ancestral Collapsible Tree Options"
-msgstr "Zusammenklappbarer Vorfahrenbaum Optionen"
+msgstr "Optionen für den zusammenklappbaren Ahnenbaum"
 
 msgid "Include Generations"
-msgstr "Generationen Aufnehmen"
+msgstr "Generationen einbeziehen"
 
 msgid "Male Background Color"
 msgstr "Hintergrundfarbe männlich"
@@ -39,7 +39,7 @@ msgid "RGB-color for male box background."
 msgstr "RGB-Hintergrundfarbe für männliche Box."
 
 msgid "Male Expandable Background Color"
-msgstr "Männliche erweiterbare Hintergrundfarbe"
+msgstr "Männliche, erweiterbare Hintergrundfarbe"
 
 msgid "RGB-color for male expandable box background."
 msgstr "RGB-Hintergrundfarbe für männliche erweiterbare Box."
@@ -51,16 +51,54 @@ msgid "RGB-color for female box background."
 msgstr "RGB-Hintergrundfarbe für weibliche Box."
 
 msgid "Female Expandable Background"
-msgstr "Erweiterbarer weiblicher Hintergrund"
+msgstr "Weiblicher, erweiterbarer Hintergrund"
 
 msgid "RGB-color for female expandable box background."
 msgstr "RGB-Hintergrundfarbe für weibliche erweiterbare Box."
 
 msgid "The destination path for generated files."
-msgstr "Der Zielpfad für erstellte Dateien."
+msgstr "Der Zielpfad für die generierten Dateien."
 
 msgid "The destination file name for html content."
-msgstr "Der Zieldateiname für HTML Inhalt."
+msgstr "Der Name der Zieldatei für den HTML-Inhalt."
+
+msgid "Ancestral Collapsible Tree"
+msgstr "Zusammenklappbarer Vorfahrenbaum"
+
+msgid ""
+"Generates a web page with a graphical representation of ancestors (SVG) "
+"represented as a Collapsible Tree Layout from the D3.js JavaScript library."
+msgstr ""
+"Erzeugt eine Webseite mit einer grafischen Darstellung der Vorfahren (SVG), "
+"die als zusammenfaltbares Baumlayout aus der JavaScript-Bibliothek D3.js "
+"dargestellt wird."
+
+msgid "Descendant Indented Tree"
+msgstr "Nachkommenschaft eingerückter Baum"
+
+msgid ""
+"Generates a web page with a graphical representation of descendants (SVG) "
+"representedas a Collapsible Indented Tree Layout from the D3.js JavaScript "
+"library."
+msgstr ""
+"Erzeugt eine Webseite mit einer grafischen Darstellung von Nachkommen (SVG), "
+"die als zusammenklappbares eingerücktes Baumlayout aus der D3.js JavaScript-"
+"Bibliothek dargestellt wird."
+
+msgid "Ancestral Fan Chart Options"
+msgstr "Ahnenfächerdiagramm Optionen"
+
+msgid "Paternal Background Color"
+msgstr "Väterliche Hintergrundfarbe"
+
+msgid "RGB-color for paternal box background."
+msgstr "RGB-Hintergrundfarbe für väterliche Box."
+
+msgid "Maternal Background"
+msgstr "Mütterlicher Hintergrund"
+
+msgid "RGB-color for maternal box background."
+msgstr "RGB-Hintergrundfarbe für mütterliche Box."
 
 msgid "Ancestral Fan Chart"
 msgstr "Ahnenfächergrafik"
@@ -69,8 +107,8 @@ msgid ""
 "Generates a web page with a graphical representation of ancestors (SVG) "
 "represented as a Fan Chart from the D3.js JavaScript library."
 msgstr ""
-"Erzeugt eine Webseite mit einer grafischen Darstellung von Vorfahren "
-"(SVG)dargestellt als Fächergrafik aus der D3.js JavaScript-Bibliothek."
+"Erzeugt eine Webseite mit einer grafischen Darstellung der Vorfahren (SVG) "
+"in Form eines Fächerdiagramms aus der JavaScript-Bibliothek D3.js."
 
 #, python-format
 msgid "See %(reference)s : %(spouse)s"
@@ -78,9 +116,6 @@ msgstr "Siehe %(reference)s : %(spouse)s"
 
 msgid "Generating report..."
 msgstr "Erstelle Bericht..."
-
-msgid "Descendant Indented Tree"
-msgstr "Nachkommenbaum eingerückt"
 
 msgid "Invalid Destination Directory"
 msgstr "Ungültiges Zielverzeichnis"
@@ -93,9 +128,9 @@ msgstr ""
 "Das Zielverzeichnis %s existiert nicht\n"
 "Möchtest du versuchen, es zu erstellen?"
 
-#, python-format
-msgid "Failed to create %s: %s"
-msgstr "Fehler beim erstellen %s: %s"
+#, python-brace-format
+msgid "Failed to create {target_path}: {message}"
+msgstr "Erstellen von {target_path} fehlgeschlagen: {message}"
 
 #, python-format
 msgid ""
@@ -116,20 +151,20 @@ msgstr "Kontraktionsstufe einbeziehen"
 
 msgid "The number of descendant levels to contract on initial display."
 msgstr ""
-"Die Anzahl der Nachkommenebenen die bei der ersten Anzeige zusammengezogen "
-"sind."
+"Die Anzahl der nachgelagerten Ebenen, die bei der ersten Anzeige "
+"zusammengezogen werden."
 
 msgid "The font size in pixels for each node."
 msgstr "Die Schriftgröße in Punkten für jeden Knoten."
 
 msgid "Whether to show duplicate family trees in the report."
-msgstr "Ob doppelte Familienbäume im Bericht angezeigt werden."
+msgstr "Ob doppelte Stammbäume im Bericht angezeigt werden sollen."
 
 msgid "Expanded Row Background Color"
-msgstr "Expandierte Zeile Hintergrundfarbe"
+msgstr "Hintergrundfarbe der erweiterten Zeile"
 
 msgid "RGB-color for expanded row background."
-msgstr "RGB-Farbe für expandierte Zeile Hintergrund."
+msgstr "RGB-Hintergrundfarbe der erweiterten Zeile."
 
 msgid "Expandable Background Color"
 msgstr "Erweiterbar Hintergrundfarbe"
@@ -144,22 +179,24 @@ msgid "RGB-color for non-expandable row background."
 msgstr "RGB-Farbe für den Hintergrund einer nicht erweiterbaren Zeile."
 
 msgid "Include records marked private"
-msgstr "Mit als vertraulich markierten Datensätzen"
+msgstr "Als vertraulich gekennzeichnete Datensätze einbeziehen"
 
 msgid "Whether to include private objects."
-msgstr "Ob vertrauliche Objekte aufgenommen werden."
+msgstr "Ob vertrauliche Objekte einbezogen werden sollen."
 
 msgid "Include Last Name Only"
-msgstr "Nur Nachnamen aufnehmen"
+msgstr "Nur Nachname einschließen"
 
 msgid "Include Full Name Only"
-msgstr "Nur vollständigen Namen aufnehmen"
+msgstr "Nur den vollständigen Namen einschließen"
 
 msgid "How to handle living people."
-msgstr "Wie werden lebende Personen behandelt."
+msgstr "Wie mit lebenden Personen umzugehen ist."
 
 msgid "Whether or not to include people who may have recently died."
-msgstr "Ob Personen die vor kurzem gestorben sein könnten aufgenommen werden."
+msgstr ""
+"Ob Personen, die kürzlich verstorben sind, aufgenommen werden sollen oder "
+"nicht."
 
 msgid "Navigation"
 msgstr "Navigation"
@@ -171,25 +208,28 @@ msgid "Entire node."
 msgstr "Gesamter Knoten."
 
 msgid "Arrow images at start of node."
-msgstr "Pfeilbilder am Beginn des Knoten."
+msgstr "Pfeilbilder am Anfang des Knotens."
 
 msgid "Plus/Minus images at start of node."
-msgstr "Plus/Minus Bilder am Beginn des Knoten."
+msgstr "Plus/Minus-Bilder am Anfang des Knotens."
 
 msgid "Where to click to expand/contract nodes."
-msgstr "Wo klicken um Knoten zu erweitern/verkleinern."
+msgstr "Wo zum Erweitern/Verkleinern von Knoten klicken."
 
 msgid "Auto-generate HREF links for nodes"
 msgstr "HREF-Links für Knoten automatisch generieren"
 
 msgid "Whether to auto-generate HTML links for each node on the report."
-msgstr "Ob HTML Links für jeden Knoten auto-erzeugt werden."
+msgstr ""
+"Ob HTML-Links für jeden Knoten im Bericht automatisch generiert werden "
+"sollen."
 
 msgid "URL prefix path."
 msgstr "URL-Präfixpfad."
 
 msgid "URL prefix to apply to each auto-generated HREF link."
-msgstr "URL-Präfix für jede automatisch generierte HREF-Verknüpfung."
+msgstr ""
+"URL-Präfix, das für jeden automatisch generierten HREF-Link gelten soll."
 
 msgid "URL file extension"
 msgstr "URL Dateierweiterung"
@@ -216,58 +256,59 @@ msgid ".cgi"
 msgstr ".cgi"
 
 msgid "URL file name delimeter"
-msgstr "URL-Dateinamensbegrenzer"
+msgstr "URL Dateinamen Begrenzung"
 
 msgid "Remove all whitespace."
 msgstr "Alle Leerzeichen entfernen."
 
 msgid "Replace whitespace with dash(-)."
-msgstr "Leerzeichen durch Bindestrich (-) ersetzen."
+msgstr "Leerzeichen durch Bindestrich(-) ersetzen."
 
 msgid "Replace whitespace with underscore(_)"
-msgstr "Leerzeichen durch Unterstrich (_) ersetzen"
+msgstr "Leerzeichen durch Unterstrich(_) ersetzen"
 
 msgid "What to use as file name delimiter replacing whitespace."
 msgstr ""
-"Was als Dateinamen-Trennzeichen zu verwenden ist, das Leerzeichen ersetzt."
+"Was als Trennzeichen für den Dateinamen zu verwenden ist, um Leerzeichen zu "
+"ersetzen."
 
 msgid "Generations to generate HREF links"
-msgstr "Generationen zum Generieren von HREF-Links"
+msgstr "Generationen zur Erzeugung von HREF-Links"
 
 msgid "The number of generations to generate HREF links."
-msgstr "Die Anzahl von Generationen für die HREF-Links generiert werden."
+msgstr "Die Anzahl der Generationen zur Erzeugung von HREF-Links."
 
 msgid "Exclude persons who died before (years)"
-msgstr "Personen ausschließen die vor (Jahren) gestorben sind"
+msgstr "Personen ausschließen, die vor (Jahren) gestorben sind"
 
 msgid ""
 "Whether to generate links for people who died in infancy, -1 excludes nobody."
 msgstr ""
-"Ob Links für Personen erstellt werden, die in der Kindheit gestorben sind. "
-"-1 keinen ausschließen."
+"Ob Links für Personen, die im Säuglingsalter gestorben sind, generiert "
+"werden sollen, -1 schließt niemanden aus."
 
 msgid "Exclude center person"
-msgstr "Hauptperson ausschließen"
+msgstr "Zentrale Person ausschließen"
 
 msgid "Whether or not to generate links for center person."
-msgstr "Ob Links für die Hauptperson generiert werden oder nicht."
+msgstr "Ob Links für die zentrale Person generiert werden sollen oder nicht."
 
 msgid "Exclude Spouses"
 msgstr "Partner ausschließen"
 
 msgid "Whether or not to generate links for spouses."
-msgstr "Ob Links für Ehepartner generiert werden oder nicht."
+msgstr "Ob Links für Partner erstellt werden sollen oder nicht."
 
 msgid "Biography Content"
-msgstr "Biographie Inhalt"
+msgstr "Biografie Inhalt"
 
 msgid "Show biography tooltips"
 msgstr "Biografie Werkzeughinweise anzeigen"
 
 msgid "Whether to show biography tooltips when hovering over a node."
 msgstr ""
-"Ob Biografie-Werkzeughinweise angezeigt werden sollen, wenn sich der "
-"Mauszeiger über einen Knoten befindet."
+"Ob Biografie-Werkzeughinweise angezeigt werden sollen, wenn der Mauszeiger "
+"über einen Knoten bewegt wird."
 
 msgid "Text Color"
 msgstr "Textfarbe"
@@ -276,51 +317,16 @@ msgid "RGB-color for biography text."
 msgstr "RGB-Farbe für Biografietext."
 
 msgid "RGB-color for biography tooltip."
-msgstr "RGB-Farbe für Biografietext-Werkzeughinweis."
+msgstr "RGB-Farbe für Biografie-Werkzeughinweis."
 
 msgid "Header Font size"
 msgstr "Kopfzeile Schriftgröße"
 
 msgid "The font size in pixels for biography header text."
-msgstr "Die Textgröße in Punkten für den Kopfzeilentext."
+msgstr "Die Schriftgröße in Pixeln für den Biografie- Kopfzeilentext."
 
 msgid "Body Font size"
-msgstr "Hauptteil Schriftgröße"
+msgstr "Textkörper Schriftgröße"
 
 msgid "The font size in pixels for biography body text."
-msgstr "Die Textgröße in Punkten für den Biographiehaupteil Text."
-
-msgid ""
-"Generates a web page with a graphical representation of descendants (SVG) "
-"representedas a Collapsible Indented Tree Layout from the D3.js JavaScript "
-"library."
-msgstr ""
-"Erzeugt eine Webseite mit einer grafischen Darstellung von Nachkommen "
-"(SVG)dargestellt als zusammenklappbares Baum-Layout aus der D3.js JavaScript-"
-"Bibliothek."
-
-msgid "Ancestral Fan Chart Options"
-msgstr "Ahnenfächergrafik Optionen"
-
-msgid "Paternal Background Color"
-msgstr "Väterliche Hintergrundfarbe"
-
-msgid "RGB-color for paternal box background."
-msgstr "RGB-Hintergrundfarbe für väterliche Box."
-
-msgid "Maternal Background"
-msgstr "Hintergrund väterlich"
-
-msgid "RGB-color for maternal box background."
-msgstr "RGB-Hintergrundfarbe für mütterliche Box."
-
-msgid "Ancestral Collapsible Tree"
-msgstr "Zusammenklappbarer Vorfahrenbaum"
-
-msgid ""
-"Generates a web page with a graphical representation of ancestors (SVG) "
-"represented as a Collapsible Tree Layout from the D3.js JavaScript library."
-msgstr ""
-"Erzeugt eine Webseite mit einer grafischen Darstellung von Vorfahren "
-"(SVG)dargestellt als zusammenklappbares Baum-Layout aus der D3.js JavaScript-"
-"Bibliothek."
+msgstr "Die Schriftgröße in Pixeln für den Biografietext."

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: fi\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-16 15:10-0800\n"
-"PO-Revision-Date: 2025-02-20 13:28+0000\n"
+"PO-Revision-Date: 2025-09-22 19:02+0000\n"
 "Last-Translator: Matti Niemelä <niememat@gmail.com>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/gramps-project/"
 "addons/fi/>\n"
@@ -12,11 +12,49 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10.1-dev\n"
+"X-Generator: Weblate 5.14-dev\n"
 "Generated-By: pygettext.py 1.4\n"
+
+msgid ""
+"LifeLineChartView dependencies are missing. It is not possible to use this "
+"plugin without them."
+msgstr ""
+"LifeLineChart-näkymän riippuvuuksia puuttuu Tätä liitännäistä ei voi käyttää "
+"ilman niitä."
+
+#, python-brace-format
+msgid "cursor position at {date}"
+msgstr "kohdistimen sijainti kohdassa {date}"
+
+msgid "Hide person"
+msgstr "Piilota henkilö"
+
+msgid "Show person"
+msgstr "Näytä henkilö"
+
+msgid "Show siblings"
+msgstr "Näytä sisarukset"
+
+msgid "Hide siblings"
+msgstr "Piilota sisarukset"
+
+msgid "Show ancestors above "
+msgstr "Näytä esivanhemmat yllä "
+
+msgid "General Layout"
+msgstr "Yleinen asettelu"
+
+msgid "Life Line Chart"
+msgstr "Elämänlinjakaavio"
 
 msgid "Zoom in"
 msgstr "Lähennä"
+
+msgid "Ctrl"
+msgstr "Ctrl"
+
+msgid "Mouse wheel"
+msgstr "Hiiren rulla"
 
 msgid "Zoom out"
 msgstr "Loitonna"
@@ -27,11 +65,364 @@ msgstr "Alkuperäinen koko"
 msgid "Zoom to best fit"
 msgstr "Ikkunaan sopivaksi"
 
+msgid "Rebuild data cache"
+msgstr "Rakenna datavälimuisti uudelleen"
+
+msgid "Revert the placement and person selection"
+msgstr "Palauta sijoittelu ja henkilövalinta"
+
+msgid "Open Life Line Chart help"
+msgstr "Elämänlinjakaavion opastus"
+
+msgid "Export View as SVG"
+msgstr "Vie näkymä SVG-muodossa"
+
+msgid "Label Configuration"
+msgstr "Tietoruudun määritykset"
+
+msgid "Reset all settings"
+msgstr "Palauta kaikki asetukset"
+
+msgid "Life Line Ancestor Chart"
+msgstr "Elämänlinjan esi-isäkaavio"
+
+msgid "Persons and their relation in a time based chart"
+msgstr "Henkilöt ja heidän suhteensa aikapohjaisessa kaaviossa"
+
+msgid "Life Line Descendant Chart"
+msgstr "Elämänlinjan jälkeläiskaavio"
+
+msgid "Warp the chart shape"
+msgstr "Väännä kaavion muotoa"
+
+msgid "The overall shape of the chart can be warped."
+msgstr "Kaavion yleinen muoto voi vääristyä."
+
+msgid "Normal grid shape"
+msgstr "Normaali ruudukon muoto"
+
+msgid "Sine shape"
+msgstr "Sinimuoto"
+
+msgid "Triangular shape"
+msgstr "Kolmiomuoto"
+
+msgid "Show photos"
+msgstr "Näytä kuvat"
+
+msgid "Photos of the individual are shown."
+msgstr "Henkilön kuvat näytetään."
+
+msgid "Photo size"
+msgstr "Kuvan koko"
+
+msgid ""
+"Photos which are shown are fitted into a square of this extent. The size is "
+"given relative to the line thickness."
+msgstr ""
+"Kuvat sovitetaan tämän kokoiseen neliöön. Koko on annettu suhteessa viivan "
+"paksuuteen."
+
+msgid "Total height"
+msgstr "Kokonaiskorkeus"
+
+msgid "Total height of the whole chart."
+msgstr "Kaavion kokonaiskorkeus."
+
+msgid "Relative line thickness"
+msgstr "Viivan suhteellinen paksuus"
+
+msgid ""
+"The line thickness of an individual is given relatively to the horizontal "
+"step size."
+msgstr "Yksilön viivan paksuus annetaan suhteessa vaakasuoran askeleen kokoon."
+
+msgid "Horizontal step size"
+msgstr "Vaakasuoran askeleen koko"
+
+msgid ""
+"This is the distance from one line to another. This value is also used for "
+"scaling of other items."
+msgstr ""
+"Tämä on rivin välinen etäisyys, arvoa käytetään myös muiden kohteiden "
+"skaalaamiseen."
+
+msgid "Show birth label"
+msgstr "Näytä syntymätieto"
+
+msgid "Activate the birth label."
+msgstr "Aktivoi syntymätieto."
+
+msgid "Birth label along path"
+msgstr "Syntymätieto polkua seuraten"
+
+msgid "The birth label is aligned to the individual line."
+msgstr "Syntymätieto kohdistetaan yksittäiseen riviin."
+
+msgid "Birth label rotation"
+msgstr "Syntymätiedon kierto"
+
+msgid "The birth label is written in a text frame rotated by this value."
+msgstr "Syntymätietoa kierretään tekstikehyksessä tällä arvolla."
+
+msgid "Horizontal offset of birth label"
+msgstr "Syntymätiedon vaakasuuntainen siirtymä"
+
+msgid ""
+"The birth label is moved horizontally by this value, which is given "
+"relatively to the font size."
+msgstr ""
+"Syntymätietoa siirretään vaakasuunnassa tällä arvolla suhteessa "
+"kirjainkokoon."
+
+msgid "Vertical offset of birth label"
+msgstr "Syntymätiedon pystysuuntainen siirtymä"
+
+msgid ""
+"The birth label is moved vertically by this value, which is given relatively "
+"to the font size."
+msgstr ""
+"Syntymätunnistetta siirretään pystysuunnassa tällä arvolla suhteessa "
+"kirjainkokoon."
+
+msgid "Wrap words in birth label"
+msgstr "Rivitä syntymätieto"
+
+msgid "The birth label content is wrapped where possible."
+msgstr "Syntymätieto rivitetään jos mahdollista."
+
+msgid "Birth label anchor"
+msgstr "Syntymätiedon ankkuri"
+
+msgid "Text alignment of the birth label."
+msgstr "Syntymätiedon tekstin tasaus."
+
+msgid "Center"
+msgstr "Keskitä"
+
+msgid "Show death label"
+msgstr "Näytä kuolintieto"
+
+msgid "Activate the death label."
+msgstr "Aktivoi kuolintieto."
+
+msgid "Death label rotation"
+msgstr "Kuolintiedon kierto"
+
+msgid "The death label is written in a text frame rotated by this value."
+msgstr "Kuolintietoa kierretään tekstikehyksessä tällä arvolla."
+
+msgid "Horizontal offset of death label"
+msgstr "Kuolintiedon vaakasuora siirtymä"
+
+msgid ""
+"The death label is moved horizontally by this value, which is given "
+"relatively to the font size."
+msgstr ""
+"Kuolintietoa siirretään vaakasuunnassa tällä arvolla suhteessa kirjainkokoon."
+
+msgid "Vertical offset of death label"
+msgstr "Kuolintiedon pystysuuntainen siirtymä"
+
+msgid ""
+"The death label is moved vertically by this value, which is given relatively "
+"to the font size."
+msgstr ""
+"Kuolintietoa siirretään pystysuunnassa tällä arvolla suhteessa kirjainkokoon."
+
+msgid "Wrap words in death label"
+msgstr "Rivitä sanat kuolintietoon"
+
+msgid "The death label content is wrapped where possible."
+msgstr "Kuolintieto rivitetään jos mahdollista."
+
+msgid "Death label anchor"
+msgstr "Kuolintiedon ankkuri"
+
+msgid "Text alignment of the death label."
+msgstr "Kuolintiedon tasaus."
+
+msgid "Show marriage label"
+msgstr "Näytä avioliittotieto"
+
+msgid "Activate the marriage label."
+msgstr "Aktivoi avioliittoteksti."
+
+msgid "Fade individual color"
+msgstr "Yksittäisen värin häivytys"
+
+msgid "The color of the individuals is faded to black with increasing age."
+msgstr "Yksilöiden väri haalistuu mustaksi iän myötä."
+
+msgid "Font name"
+msgstr "Fontin nimi"
+
+msgid "Name of the font family used for labels."
+msgstr "Tekstikentissä käytetyn fonttiperheen nimi."
+
+msgid "Relative font size"
+msgstr "Suhteellinen fonttikoko"
+
+msgid "The font size is given relatively to the line thickness."
+msgstr "Kirjasinkoko on annettu suhteessa viivan paksuuteen."
+
+msgid "Family shape"
+msgstr "Perheen muoto"
+
+msgid "The shape of the families can be varied."
+msgstr "Perheiden muoto voi vaihdella."
+
+msgid "Rectangular"
+msgstr "Suorakulmainen"
+
+msgid "Softer"
+msgstr "Pehmeämpi"
+
+msgid "Upper year minimum margin"
+msgstr "Ylemmän vuoden vähimmäismarginaali"
+
+msgid ""
+"The upper bound of the chart is extended by at least this number of years."
+msgstr "Kaavion yläraja laajennetaan vähintään tämän vuosimäärän verran."
+
+msgid "Lower year minimum margin"
+msgstr "Alemman vuoden vähimmäismarginaali"
+
+msgid ""
+"The lower bound of the chart is extended by at least this number of years."
+msgstr "Kaavion alarajaa laajennetaan vähintään tällä vuosimäärällä."
+
+msgid "Visualize connections"
+msgstr "Visualisoi yhteydet"
+
+msgid ""
+"Visualize the connections between families and individuals. This is for "
+"debugging purposes."
+msgstr ""
+"Visualisoi perheiden ja yksilöiden väliset yhteydet. Tämä on "
+"virheenkorjausta varten."
+
+msgid "Visualize ambiguous placement"
+msgstr "Visualisoi epäselvä sijoitus"
+
+msgid "Visualize automatically detected errors in the placement algorithm."
+msgstr "Visualisoi sijoitusalgoritmin automaattisesti havaitsemat virheet."
+
+msgid "Coloring of individuals"
+msgstr "Henkilöiden väritys"
+
+msgid "There are different ways to determine the color of an individual."
+msgstr "Yksilön värin määrittämiseen on erilaisia tapoja."
+
+msgid "Unique"
+msgstr "Yksilöllinen"
+
+msgid "Based on surname"
+msgstr "Perustuu sukunimeen"
+
+msgid "Flip vertically"
+msgstr "Käännä pystysuunnassa"
+
+msgid "If active, the chart is flipped vertically."
+msgstr "Jos se on aktiivinen, kaavio käännetään pystysuunnassa."
+
+msgid "Line weighting"
+msgstr "Viivan koko"
+
+msgid "The line width can be configured."
+msgstr "Viivan leveyttä voidaan muuttaa."
+
 msgid "none"
 msgstr "ei mitään"
+
+msgid "Show pedigree collapse"
+msgstr "Näytä esivanhempainkato"
+
+msgid ""
+"Due to pedigree collapse one individual might appear several times in a "
+"simple ancestor chart. If this is active, then every individual only appears "
+"once."
+msgstr ""
+"Esivanhempainkadon vuoksi yksi yksilö saattaa esiintyä useita kertoja "
+"yksinkertaisessa esivanhempien kartassa. Jos tämä on aktiivinen, jokainen "
+"yksilö esiintyy vain kerran."
 
 msgid "Maximum number of generations"
 msgstr "Sukupolvien enimmäismäärä"
 
+msgid ""
+"if this number of generations has been reached, the algorithm doesn't go any "
+"deeper"
+msgstr ""
+"Jos tämä sukupolvien määrä on saavutettu, algoritmi ei mene enää syvemmälle"
+
+msgid "Fathers have the same color"
+msgstr "Isät on samanvärisiä"
+
+msgid ""
+"Starting from the root person, each father of an added individual has the "
+"same color as that individual."
+msgstr ""
+"Juurihenkilöstä alkaen jokaisella lisätyn yksilön isällä on sama väri kuin "
+"kyseisellä yksilöllä."
+
+msgid "Maximum number of compression steps"
+msgstr "Pakkausvaiheiden enimmäismäärä"
+
+msgid "Debugging of the compression algorithm. Abort after x steps."
+msgstr "Tiivistysalgoritmin vianetsintä. Keskeytä x askeleen jälkeen."
+
+msgid "Maximum number of flipping steps"
+msgstr "Kääntövaiheiden enimmäismäärä"
+
+msgid "Debugging of the flipping algorithm. Abort after x steps."
+msgstr "Kääntöalgoritmin vianetsintä. Keskeytä x askeleen jälkeen."
+
+msgid "Compress the chart horizontally"
+msgstr "Tiivistä kaavio vaakasuunnassa"
+
+msgid ""
+"By default every individual has a unique horizontal slot. This can be "
+"inefficient with many generations. This algorithm lets several people share "
+"a horizontal slot, if they do not overlap."
+msgstr ""
+"Oletusarvoisesti jokaisella yksilöllä on oma vaakasuora paikkansa. Tämä voi "
+"olla tehotonta useiden sukupolvien kanssa. Tämä algoritmi antaa useiden "
+"ihmisten jakaa vaakasuoran paikan, jos he eivät ole päällekkäisiä."
+
+msgid "Flip families to reduce horizontal connections"
+msgstr "Käännä perheet vaakasuutaisien yhteyksien vähentämiseksi"
+
+msgid ""
+"Switch the position of mother and father in a family, to reduce the overall "
+"horizontal cross connections in larger graphs. This is happens if one person "
+"is shown in more than one family or it is caused by pedigree collapse."
+msgstr ""
+"Vaihda äidin ja isän paikat perheessä vähentääksesi yleisiä horisontaalisia "
+"ristiinkytkentöjä suuremmissa kaavioissa. Näin tapahtuu, jos yksi henkilö "
+"esiintyy useammassa kuin yhdessä perheessä tai jos se johtuu "
+"esivanhempainkadosta."
+
+msgid "Highlight descandants"
+msgstr "Korosta jälkeläiset"
+
+msgid "Highlight the persons which are descendants."
+msgstr "Korosta henkilöt, jotka ovat jälkeläisiä."
+
 msgid "Number of descendants"
 msgstr "Jälkeläisten määrä"
+
+msgid "Very soft"
+msgstr "Hyvin pehmeä"
+
+msgid "General chart layout"
+msgstr "Kaavion yleinen asettelu"
+
+msgid "There are different layouts for descendant charts."
+msgstr "Jälkeläiskaavioille on erilaisia asetteluja."
+
+msgid "Parents enclose children"
+msgstr "Vanhempien mukana on lapsia"
+
+msgid "Cactus"
+msgstr "Kaktus"

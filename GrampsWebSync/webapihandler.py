@@ -27,6 +27,7 @@ import json
 import logging
 import os
 import platform
+import socket
 import time
 from collections.abc import Callable
 from pathlib import Path
@@ -36,11 +37,9 @@ from typing import Any
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
-import gramps
-import gramps.gen.lib
+from gramps.gen.lib.json_utils import remove_object
 from gramps.gen.db import KEY_TO_CLASS_MAP, DbTxn
 from gramps.gen.db.dbconst import TXNADD, TXNDEL, TXNUPD
-from gramps.gen.utils.grampslocale import GrampsLocale
 
 LOG = logging.getLogger("grampswebsync")
 
@@ -152,7 +151,7 @@ class WebApiHandler:
         LOG.debug("Fetching metadata from the server")
         req = Request(
             f"{self.url}/metadata/",
-            headers={"Authorization": f"Bearer {self.access_token}"},
+            headers={"Authorization": f"Bearer {self.access_token}", "User-Agent": "GrampsWebSync"},
         )
         with urlopen(req, context=self._ctx) as res:
             self._metadata = json.load(res)
@@ -164,7 +163,7 @@ class WebApiHandler:
         req = Request(
             f"{self.url}/token/",
             data=data.encode(),
-            headers={"Content-Type": "application/json"},
+            headers={"Content-Type": "application/json", "User-Agent": "GrampsWebSync"},
         )
         try:
             with urlopen(req, context=self._ctx) as res:
@@ -227,6 +226,7 @@ class WebApiHandler:
                 headers={
                     "Content-Type": "application/json",
                     "Authorization": f"Bearer {self.access_token}",
+                    "User-Agent": "GrampsWebSync"
                 },
             )
             json_response: dict | None = None
@@ -262,7 +262,7 @@ class WebApiHandler:
         endpoint = f"{self.url}/tasks/{task_id}"
         req = Request(
             endpoint,
-            headers={"Authorization": f"Bearer {self.access_token}"},
+            headers={"Authorization": f"Bearer {self.access_token}", "User-Agent": "GrampsWebSync"},
         )
         try:
             with urlopen(req, context=self._ctx) as res:
@@ -270,8 +270,8 @@ class WebApiHandler:
                 if task_status["state"] == "SUCCESS":
                     return True
                 if task_status["state"] in {"FAILURE", "REVOKED"}:
-                    LOG.error(f"Server task failed: {task_status}")
-                    raise ValueError(task_status.get("info", "Server task failed"))
+                    LOG.warning(f"Server task failed: {task_status}")
+                    raise ValueError(str(task_status.get("info", "Server task failed")))
                 if progress_callback:
                     try:
                         progress = task_status["result_object"]["progress"]
@@ -280,15 +280,20 @@ class WebApiHandler:
                     progress_callback(progress)
                 return False
         except HTTPError as e:
-            LOG.error(f"HTTPError while fetching task status: {e.code} - {e.reason}")
+            LOG.warning(f"HTTPError while fetching task status: {e.code} - {e.reason}")
+            raise ValueError(f"HTTP Error: {e.code} - {e.reason}")
         except URLError as e:
-            LOG.error(f"URLError while fetching task status: {e.reason}")
+            LOG.warning(f"URLError while fetching task status: {e.reason}")
+            raise ValueError(f"URL Error: {e.reason}")
+        except socket.timeout as e:
+            LOG.warning(f"Timeout while fetching task status: {e}")
+            raise ValueError("Connection timed out while fetching task status.")
 
     def get_missing_files(self, retry: bool = True) -> list:
         """Get a list of remote media objects with missing files."""
         req = Request(
             f"{self.url}/media/?filemissing=1",
-            headers={"Authorization": f"Bearer {self.access_token}"},
+            headers={"Authorization": f"Bearer {self.access_token}", "User-Agent": "GrampsWebSync"},
         )
         try:
             with urlopen(req, context=self._ctx) as res:
@@ -307,11 +312,11 @@ class WebApiHandler:
     ):
         """Download a file."""
         if token_url:
-            req = Request(f"{url}?jwt={self.access_token}")
+            req = Request(f"{url}?jwt={self.access_token}", headers={"User-Agent": "GrampsWebSync"})
         else:
             req = Request(
                 url,
-                headers={"Authorization": f"Bearer {self.access_token}"},
+                headers={"Authorization": f"Bearer {self.access_token}", "User-Agent": "GrampsWebSync"},
             )
         try:
             with urlopen(req, context=self._ctx) as res:
@@ -336,6 +341,7 @@ class WebApiHandler:
     def download_media_file(self, handle: str, path) -> bool:
         """Download a media file."""
         url = f"{self.url}/media/{handle}/file"
+        Path(path).parent.mkdir(parents=True, exist_ok=True)
         with open(path, "wb") as f:
             self._download_file(url=url, fobj=f, token_url=True)
         return True
@@ -357,7 +363,7 @@ class WebApiHandler:
         req = Request(
             url,
             data=fobj,
-            headers={"Authorization": f"Bearer {self.access_token}"},
+            headers={"Authorization": f"Bearer {self.access_token}", "User-Agent": "GrampsWebSync"},
             method="PUT",
         )
         try:
@@ -370,64 +376,11 @@ class WebApiHandler:
                 self.fetch_token()
                 return self._upload_file(url=url, fobj=fobj, retry=False)
             raise
-
-
-# special cases for type names. See https://github.com/gramps-project/gramps-webapi/issues/163#issuecomment-940361882
-_type_name_special_cases = {
-    "Father Age": "Father's Age",
-    "Mother Age": "Mother's Age",
-    "BIC": "Born In Covenant",
-    "DNS": "Do not seal",
-    "DNS/CAN": "Do not seal/Cancel",
-    "bold": "Bold",
-    "italic": "Italic",
-    "underline": "Underline",
-    "fontface": "Fontface",
-    "fontsize": "Fontsize",
-    "fontcolor": "Fontcolor",
-    "highlight": "Highlight",
-    "superscript": "Superscript",
-    "link": "Link",
-}
-
-
-def to_json(obj, lang: str | None = None) -> str:
-    """
-    Encode a Gramps object to a JSON object.
-
-    Patched from `gramps.gen.serialize` to allow translation of type names.
-    """
-
-    def __default(obj):
-        obj_dict = {"_class": obj.__class__.__name__}
-        if isinstance(obj, gramps.gen.lib.GrampsType):
-            if not lang:
-                obj_dict["string"] = getattr(obj, "string")
-            else:
-                # if the remote locale is different from the local one,
-                # need to translate type names.
-                glocale = GrampsLocale(lang=lang)
-                # In most cases, the xml_str
-                # is the same as the gettext message, so it can just be translated.
-                s_untrans = obj.xml_str()
-                # handle exceptional cases
-                s_untrans = _type_name_special_cases.get(s_untrans, s_untrans)
-                # translate
-                assert glocale is not None  # for type checker
-                obj_dict["string"] = glocale.translation.gettext(s_untrans)
-        if isinstance(obj, gramps.gen.lib.Date):
-            if obj.is_empty() and not obj.text:
-                return None
-        for key, value in obj.__dict__.items():
-            if not key.startswith("_"):
-                obj_dict[key] = value
-        for key, value in obj.__class__.__dict__.items():
-            if isinstance(value, property):
-                if key != "year":
-                    obj_dict[key] = getattr(obj, key)
-        return obj_dict
-
-    return json.dumps(obj, default=__default, ensure_ascii=False)
+        except (URLError, socket.timeout) as exc:
+            if retry:
+                sleep(1)
+                return self._upload_file(url=url, fobj=fobj, retry=False)
+            raise
 
 
 def transaction_to_json(
@@ -442,17 +395,12 @@ def transaction_to_json(
         except KeyError:
             continue  # this happens for references
         trans_dict = {TXNUPD: "update", TXNDEL: "delete", TXNADD: "add"}
-        obj_cls = getattr(gramps.gen.lib, obj_cls_name)
-        if old_data:
-            old_data = obj_cls().unserialize(old_data)
-        if new_data:
-            new_data = obj_cls().unserialize(new_data)
         item = {
             "type": trans_dict[action],
             "handle": handle,
             "_class": obj_cls_name,
-            "old": json.loads(to_json(old_data, lang=lang)),
-            "new": json.loads(to_json(new_data, lang=lang)),
+            "old": None if old_data is None else remove_object(old_data),
+            "new": None if new_data is None else remove_object(new_data),
         }
         out.append(item)
     return out

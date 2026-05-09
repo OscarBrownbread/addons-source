@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: trunk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-16 15:10-0800\n"
-"PO-Revision-Date: 2025-03-02 13:48+0000\n"
-"Last-Translator: Julien Lepiller <roptat@lepiller.eu>\n"
+"POT-Creation-Date: 2025-03-13 23:06+0000\n"
+"PO-Revision-Date: 2025-05-05 14:44+0000\n"
+"Last-Translator: jmichault <jmt.2000@free.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/gramps-project/"
 "addons/fr/>\n"
 "Language: fr\n"
@@ -12,10 +12,16 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
-"X-Generator: Weblate 5.10.3-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 msgid "No Source"
 msgstr "Pas de source"
+
+msgid "onclick"
+msgstr "en cliquant"
+
+msgid "onmouseover"
+msgstr "ausurvoldelasouris"
 
 msgid "Ancestor"
 msgstr "Ascendant"
@@ -56,9 +62,9 @@ msgstr "description"
 msgid "witnesses"
 msgstr "témoins"
 
-#, python-format
-msgid "Failure writing %s: %s"
-msgstr "Échec à l'écriture de %s : %s"
+#, python-brace-format
+msgid "Failure writing {target_path}: {message}"
+msgstr "Échec à l'écriture de {target_path} : {message}"
 
 msgid "No central person selected"
 msgstr "Aucun individu central sélectionné"
@@ -93,6 +99,9 @@ msgstr "dans"
 msgid "DenominoViso Options"
 msgstr "Options DenominoViso"
 
+msgid "The destination file for the html-content."
+msgstr "Le fichier de destination pour le contenu HTML."
+
 msgid "Central Person"
 msgstr "L'individu central"
 
@@ -109,7 +118,7 @@ msgid "Display mode"
 msgstr "Mode d'affichage"
 
 msgid "Either plot ancestor or descendants graph."
-msgstr "Soit table d'ascendant soit graphique de descendants"
+msgstr "Soit table d'ascendant soit graphique de descendants."
 
 msgid "Display type"
 msgstr "Affichage du type"
@@ -151,8 +160,14 @@ msgstr "Options à inclure"
 msgid "Include private records"
 msgstr "Inclure les enregistrements privés"
 
+msgid "Whether to leave out private data."
+msgstr "Omettre ou non les données privés."
+
 msgid "Include Events"
 msgstr "Inclure les événements"
+
+msgid "Whether to include a person's events."
+msgstr "Inclure ou non des évènements d'individu."
 
 msgid "Include birth children"
 msgstr "Inclure la naissance des enfants"
@@ -166,7 +181,7 @@ msgstr "Inclure les décès des proches"
 
 msgid ""
 "Whether to include the death of relatives during the lifetime of person."
-msgstr "Inclure ou non les décès des proches durant la vie de la personne."
+msgstr "Inclure ou non les décès des proches durant la vie de l'individu."
 
 msgid "Include witness note"
 msgstr "Inclure la note du témoin"
@@ -176,7 +191,7 @@ msgid ""
 "contains <witnesses>)"
 msgstr ""
 "Inclure ou non la note propre à un témoin (si le format de l'événement "
-"contient <témoins>) "
+"contient <témoins>)"
 
 msgid "Whether to include a person's attributes"
 msgstr "Inclure ou non les attributs des individus"
@@ -224,7 +239,7 @@ msgid "Copy Image"
 msgstr "Copier l'image"
 
 msgid "Copy the images to a designated directory."
-msgstr "Copier les images vers un répertoire désigné. "
+msgstr "Copier les images vers un répertoire désigné."
 
 msgid "Images with Attribute"
 msgstr "Images avec attribut"
@@ -249,26 +264,26 @@ msgid "Style Options"
 msgstr "Options du style"
 
 msgid "Color of active person:"
-msgstr "Couleur de l'individu actif:"
+msgstr "Couleur de l'individu actif :"
 
 msgid "RGB-color of geometric shape of the activated person."
 msgstr "Couleur RGB de la figure géométrique pour la personne active."
 
 msgid "Color of found persons:"
-msgstr "Couleur des individus trouvés:"
+msgstr "Couleur des individus trouvés :"
 
 msgid "RGB-color of geometric shape of the persons found."
 msgstr "Couleur RGB de la figure géométrique pour les individus trouvés."
 
 msgid "Color of male persons:"
-msgstr "Couleur des individus masculins:"
+msgstr "Couleur des individus masculins :"
 
 msgid "RGB-color of geometric shape of the male persons."
 msgstr ""
 "Couleur RGB de la figure géométrique pour les individus de genre masculin."
 
 msgid "Colour of female persons:"
-msgstr "Couleur des individus féminins:"
+msgstr "Couleur des individus féminins :"
 
 msgid "RGB-color of geometric shape of the female persons."
 msgstr "Couleur RGB pour la figure géométrique des individus de genre féminin."
@@ -304,7 +319,7 @@ msgstr ""
 "en tant que fraction de la distance horizontale du rectangle."
 
 msgid "Extra style settings:"
-msgstr "Préférences supplémentaires:"
+msgstr "Préférences supplémentaires :"
 
 msgid "Whatever css style settings are needed."
 msgstr "Le style css choisi."
@@ -329,6 +344,13 @@ msgstr ""
 
 msgid "Source confidence color"
 msgstr "Couleur pour la confiance de la source"
+
+msgid ""
+"List of lists where each sublist is a list with information on the color to "
+"use for a certain confidence level."
+msgstr ""
+"Liste de listes où chaque sous-liste est une liste contenant des "
+"informations sur la couleur à utiliser pour un certain niveau de confiance."
 
 msgid "Event format"
 msgstr "Format de l'événement"
@@ -366,6 +388,12 @@ msgstr "Sauver les images dans ..."
 msgid "should be"
 msgstr "devrait être"
 
+msgid "Included"
+msgstr "Compris"
+
+msgid "Excluded"
+msgstr "Exclus"
+
 msgid "Name HTML-wrapper file"
 msgstr "Nom du fichier HTML (wrapper)"
 
@@ -389,3 +417,12 @@ msgstr "Longueur du pointillé"
 
 msgid "DenominoViso"
 msgstr "DenominoViso"
+
+msgid ""
+"Generates a web (HTML) page with a graphical representation of ancestors/"
+"descendants (SVG) where details about individuals become visible upon mouse-"
+"events."
+msgstr ""
+"Génère une page Web (HTML) avec une représentation graphique des ancêtres/"
+"descendants (SVG) où les détails sur les individus deviennent visibles lors "
+"des événements de souris."

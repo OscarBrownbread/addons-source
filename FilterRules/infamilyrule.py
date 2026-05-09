@@ -3,6 +3,7 @@
 #
 # Copyright (C) 2020  Paul Culley
 # Copyright (C) 2020  Matthias Kemmer
+# Copyright (C) 2025  Steve Youngs
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -23,12 +24,30 @@
 
 # -------------------------------------------------------------------------
 #
+# Standard python modules
+#
+# -------------------------------------------------------------------------
+from __future__ import annotations
+
+# -------------------------------------------------------------------------
+#
 # Gramps modules
 #
 # -------------------------------------------------------------------------
 from gramps.gui.editors.filtereditor import MyBoolean, MyFilters
 from gramps.gen.filters.rules._matchesfilterbase import MatchesFilterBase
 from gramps.gen.const import GRAMPS_LOCALE as glocale
+
+# -------------------------------------------------------------------------
+#
+# Typing modules
+#
+# -------------------------------------------------------------------------
+from typing import Set
+from gramps.gen.types import PersonHandle
+from gramps.gen.lib import Person
+from gramps.gen.db import Database
+
 try:
     _trans = glocale.get_addon_translator(__file__)
 except ValueError:
@@ -130,28 +149,27 @@ class PersonsInFamilyFilterMatch(MatchesFilterBase):
 
     def prepare(self, db, user):
         """Prepare a reference list for the filter."""
-        self.persons = set()
+        self.selected_handles: Set[PersonHandle] = set()
         MatchesFilterBase.prepare(self, db, user)
         self.MFF_filt = self.find_filter()
         if self.MFF_filt:
+            include_children = bool(int(self.list[1]))
+            include_parents = bool(int(self.list[2]))
             for family_handle in db.iter_family_handles():
-                if self.MFF_filt.check(db, family_handle):
-                    family = db.get_family_from_handle(family_handle)
-                    if bool(int(self.list[2])):
+                family = db.get_family_from_handle(family_handle)
+                if self.MFF_filt.apply_to_one(db, family):
+                    if include_parents:
                         father = family.get_father_handle()
                         mother = family.get_mother_handle()
-                        self.persons.add(father)
-                        self.persons.add(mother)
-                    if bool(int(self.list[1])):
-                        for child_ref in family.get_child_ref_list():
-                            self.persons.add(child_ref.ref)
+                        self.selected_handles.add(father)
+                        self.selected_handles.add(mother)
+                    if include_children:
+                        self.selected_handles.update([c.ref for c in family.get_child_ref_list()])
 
-    def apply(self, _db, obj):
+    def apply_to_one(self, db: Database, person: Person) -> bool:
         """
-        Return True if a person appies to the filter rule.
+        Return True if a person matches to the filter rule.
 
         :returns: True or False
         """
-        if obj.get_handle() in self.persons:
-            return True
-        return False
+        return person.handle in self.selected_handles

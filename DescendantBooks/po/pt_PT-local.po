@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gramps51\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-16 15:10-0800\n"
-"PO-Revision-Date: 2025-03-08 07:05+0000\n"
+"POT-Creation-Date: 2025-03-13 22:50+0000\n"
+"PO-Revision-Date: 2025-03-24 17:49+0000\n"
 "Last-Translator: Pedro Albuquerque <pmra@protonmail.com>\n"
 "Language-Team: Portuguese (Portugal) <https://hosted.weblate.org/projects/"
 "gramps-project/addons/pt_PT/>\n"
@@ -12,7 +12,24 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10.3-dev\n"
+"X-Generator: Weblate 5.11-dev\n"
+
+msgid "Descendant Book"
+msgstr "Livro Descendentes"
+
+msgid "Produces one or more descendant reports based on a supplied query."
+msgstr ""
+"Produz um ou mais relatórios de descendência baseados numa consulta "
+"fornecida."
+
+msgid "Detailed Descendant Book"
+msgstr "Livro Descendência detalhada"
+
+msgid ""
+"Produces one or more detailed descendant reports based on a supplied query."
+msgstr ""
+"Produz um ou mais relatórios de descendência detalhada baseados numa "
+"consulta fornecida."
 
 #, python-format
 msgid "sp. see  %(reference)s : %(spouse)s"
@@ -30,13 +47,13 @@ msgstr "Relatório Descendentes"
 msgid "Writing %s reports..."
 msgstr "A escrever %s relatórios..."
 
-#, python-format
-msgid "%s. Descendants of %s"
-msgstr "%s. Descendentes de %s"
+#, python-brace-format
+msgid "{report_count}. Descendants of {name}"
+msgstr "{report_count}. Descendentes de {name}"
 
-#, python-format
-msgid "%d. %s"
-msgstr "%d. %s"
+#, python-brace-format
+msgid "{report_count:d}. {name}"
+msgstr "{report_count:d}. {name}"
 
 msgid "Select filter to restrict people that appear in the report"
 msgstr ""
@@ -77,21 +94,21 @@ msgstr "Índice de nomes"
 msgid "Report, Generation, Person, Name"
 msgstr "Relatório, Geração, Indivíduo, Nome"
 
-#, python-format
-msgid "See Report : %s, Generation : %s, Person : %s"
-msgstr "Veja o relatório: %s, geração %s, indivíduo %s"
+#, python-brace-format
+msgid "See Report : {report}, Generation : {generation}, Person : {person}"
+msgstr "Veja o relatório: {report}, geração: {generation}, indivíduo: {person}"
 
 #, python-format
 msgid "Report appearances for %s"
 msgstr "Relatar aparições de %s"
 
-#, python-format
-msgid "Spouse of: Report: %s, Generation: %s, Person: %s"
-msgstr "Cônjuge de: relatório %s, geração %s, indivíduo %s"
+#, python-brace-format
+msgid "Spouse of: Report: {report}, Generation: {generation}, Person: {person}"
+msgstr "Cônjuge de: {report}, geração {generation}, indivíduo {person}"
 
-#, python-format
-msgid "Report: %s, Generation: %s, Person: %s"
-msgstr "Relatório: %s, geração %s, indivíduo %s"
+#, python-brace-format
+msgid "Report: {report}, Generation: {generation}, Person: {person}"
+msgstr "Relatório: {report}, geração {generation}, indivíduo {person}"
 
 #, python-format
 msgid "%(event_name)s of %(name)s "
@@ -125,9 +142,9 @@ msgstr "%(event_name)s:"
 msgid " %(event_text)s"
 msgstr " %(event_text)s"
 
-#, python-format
-msgid "Ref: %s. %s"
-msgstr "Ref: %s. %s"
+#, python-brace-format
+msgid "Ref: {number}. {name}"
+msgstr "Ref.: {number}. {name}"
 
 #, python-format
 msgid "%(name_kind)s: %(name)s%(endnotes)s"
@@ -211,23 +228,6 @@ msgstr "O estilo usado para o cabeçalho no índice de locais."
 
 msgid "The style used for the references in the Index of Places."
 msgstr "O estilo usado para as referências no índice de locais."
-
-msgid "Descendant Book"
-msgstr "Livro Descendentes"
-
-msgid "Produces one or more descendant reports based on a supplied query."
-msgstr ""
-"Produz um ou mais relatórios de descendência baseados numa consulta "
-"fornecida."
-
-msgid "Detailed Descendant Book"
-msgstr "Livro Descendência detalhada"
-
-msgid ""
-"Produces one or more detailed descendant reports based on a supplied query."
-msgstr ""
-"Produz um ou mais relatórios de descendência detalhada baseados numa "
-"consulta fornecida."
 
 #, python-format
 msgid "Deep pruning ascendants from %s people..."

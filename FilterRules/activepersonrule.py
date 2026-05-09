@@ -2,6 +2,7 @@
 # Gramps - a GTK+/GNOME based genealogy program
 #
 # Copyright (C) 2020  Paul Culley
+# Copyright (C) 2025  Steve Youngs
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -23,6 +24,7 @@
 # Standard Python modules
 #
 #-------------------------------------------------------------------------
+from __future__ import annotations
 from gramps.gen.const import GRAMPS_LOCALE as glocale
 _ = glocale.translation.gettext
 
@@ -33,6 +35,15 @@ _ = glocale.translation.gettext
 #-------------------------------------------------------------------------
 from gramps.gen.filters.rules import Rule
 
+# -------------------------------------------------------------------------
+#
+# Typing modules
+#
+# -------------------------------------------------------------------------
+from typing import Set
+from gramps.gen.types import PersonHandle
+from gramps.gen.lib import Person
+from gramps.gen.db import Database
 
 #-------------------------------------------------------------------------
 #
@@ -40,21 +51,19 @@ from gramps.gen.filters.rules import Rule
 #
 #-------------------------------------------------------------------------
 class IsActivePerson(Rule):
-    """Rule that checks for tha active person in the database"""
+    """Rule that checks for the active person in the database"""
 
     name = _('Active person')
     category = _('General filters')
     description = _("Matches the active person")
 
-    def prepare(self, db, user):
-        self.pers_hndl = None
-        if user.uistate:
-            self.pers_hndl = user.uistate.get_active('Person')
-            if self.pers_hndl:
-                self.apply = self.apply_real
-                return
-        self.apply = lambda db, p: False
-        user.warn("No active Person")
+    def prepare(self, db: Database, user):
+        self.selected_handles: Set[PersonHandle] = set()
+        active_person = user.uistate.get_active('Person') if (user and user.uistate) else None
+        if active_person:
+            self.selected_handles.add(active_person)
+        else:
+            user.warn("No active Person")
 
-    def apply_real(self, db, person):
-        return person.handle == self.pers_hndl
+    def apply_to_one(self, db: Database, person: Person) -> bool:
+        return person.handle in self.selected_handles

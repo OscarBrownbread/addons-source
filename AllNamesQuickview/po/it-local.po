@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: gramps 3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-16 15:10-0800\n"
-"PO-Revision-Date: 2025-02-25 16:12+0000\n"
+"PO-Revision-Date: 2026-04-14 18:01+0000\n"
 "Last-Translator: Fabio Restante <frestante@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/gramps-project/"
 "addons/it/>\n"
@@ -12,7 +12,20 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10.2-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
+
+msgid "All Names of All People"
+msgstr "Tutti i nomi di tutte le persone"
+
+msgid "Primary Name"
+msgstr "Nome primario"
 
 msgid "Name Type"
 msgstr "Tipo nome"
+
+#, python-format
+msgid "Total names %d"
+msgstr "Nomi totali %d"
+
+msgid "Display all names of all people"
+msgstr "Mostra tutti i nomi di tutte le persone"

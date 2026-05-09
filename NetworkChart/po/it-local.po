@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gramps 3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-16 15:10-0800\n"
-"PO-Revision-Date: 2025-02-25 16:12+0000\n"
-"Last-Translator: Fabio Restante <frestante@gmail.com>\n"
+"POT-Creation-Date: 2025-09-09 18:33+0100\n"
+"PO-Revision-Date: 2026-03-05 22:10+0000\n"
+"Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/gramps-project/"
 "addons/it/>\n"
 "Language: it\n"
@@ -12,10 +12,62 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10.2-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
+
+msgid "Select URL style."
+msgstr "Selezionare lo stile dell'URL."
+
+msgid "Enter Font Name"
+msgstr "Inserisci il nome del tipo di carattere"
+
+msgid ""
+"Enter the primary font style for the chart.\n"
+"Must already be installed.\n"
+"White Rabbit can be obtained from\n"
+"https://www.fontsquirrel.com/fonts/white-rabbit"
+msgstr ""
+"Inserisci lo stile di carattere primario per il grafico.\n"
+"Deve essere già installato.\n"
+"\"White Rabbit\" può essere ottenuto da\n"
+"https://www.fontsquirrel.com/fonts/white-rabbit"
+
+msgid "The destination folder for generated files."
+msgstr "La cartella di destinazione per i file generati."
 
 msgid "Different node shapes/edges for gender."
 msgstr "Forme/bordi dei nodi diversi in base al genere."
 
 msgid "Node differences for gender."
 msgstr "Differenze dei nodi per genere."
+
+msgid "RGB-color for male box background."
+msgstr "Colore RGB per lo sfondo dei riquadri maschili."
+
+msgid "Alpha for Male box background (transparent=0, solid=255)."
+msgstr ""
+"Canale alfa per lo sfondo del riquadro maschile (trasparente=0, solido=255)."
+
+msgid "Male Box Edge"
+msgstr "Bordo del riquadro maschile"
+
+msgid "RGB-color for Male box edge."
+msgstr "Colore RGB per il bordo del riquadro maschile."
+
+msgid "Female Background"
+msgstr "Colore di fondo delle donne"
+
+msgid "RGB-color for Female box background."
+msgstr "Colore RGB per lo sfondo del riquadro femminile."
+
+msgid "Alpha for Female box background (transparent=0, solid=255)."
+msgstr ""
+"Canale alfa per lo sfondo del riquadro femminile (trasparente=0, solido=255)."
+
+msgid "Female Box Edge"
+msgstr "Bordo del riquadro femminile"
+
+msgid "RGB-color for Female box edge."
+msgstr "Colore RGB per il bordo del riquadro femminile."
+
+msgid "RGB-color for other box background."
+msgstr "Colore RGB per lo sfondo di altri riquadri."

@@ -3,7 +3,7 @@
 #
 # Copyright (C) 2015-2016 Douglas S. Blank <doug.blank@gmail.com>
 # Copyright (C) 2016-2017 Nick Hall
-# Copyright (C) 2022 David Straub
+# Copyright (C) 2022-2025 David Straub
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -25,7 +25,6 @@ Backend for PostgreSQL database.
 """
 
 import os
-import pickle
 import re
 from uuid import uuid4
 
@@ -34,6 +33,7 @@ from gramps.gen.config import config
 from gramps.gen.const import GRAMPS_LOCALE as glocale
 from gramps.gen.db.dbconst import ARRAYSIZE
 from gramps.gen.db.exceptions import DbConnectionError
+from gramps.gen.lib.json_utils import dict_to_string
 from gramps.gen.utils.configmanager import ConfigManager
 
 try:
@@ -153,10 +153,26 @@ class Connection:
         if not treeid:
             raise ValueError("Tree ID not found")
         version = SharedPostgreSQL.VERSION[0]
+        version_str = dict_to_string({"type": "str", "value": str(version)})
         self.execute(
-            "INSERT INTO metadata (treeid, setting, value) VALUES (?, ?, ?)",
-            [treeid, "version", pickle.dumps(str(version))],
+            f"INSERT INTO metadata (treeid, setting, json_data) VALUES (?, ?, ?)",
+            [treeid, "version", version_str],
         )
+
+    def _schema_version_exists(self):
+        """Check if the schema version exists."""
+        treeid = self._get_treeid()
+        if not treeid:
+            raise ValueError("Tree ID not found")
+        self.execute(
+            "SELECT COUNT(*) FROM metadata WHERE treeid = ? AND setting = ? AND json_data IS NOT NULL",
+            [treeid, "version"],
+        )
+        row = self.fetchone()
+        if not row:
+            return False
+        count = row[0]
+        return count > 0
 
     def check_collation(self, locale):
         """
@@ -209,6 +225,26 @@ class Connection:
             [table],
         )
         return self.fetchone()[0] != 0
+
+    def column_exists(self, table, column):
+        """
+        Test whether the specified SQL column exists in the specified table.
+        :param table: table name to check.
+        :type table: str
+        :param column: column name to check.
+        :type column: str
+        :returns: True if the column exists, False otherwise.
+        :rtype: bool
+        """
+        self.__cursor.execute(
+            "SELECT COUNT(*) FROM information_schema.columns "
+            "WHERE table_name = %s AND column_name = %s",
+            (table, column),
+        )
+        return self.fetchone()[0] != 0
+
+    def drop_column(self, table_name, column_name):
+        pass  # we never delete columns on shared databases!
 
     def close(self):
         self.__connection.close()

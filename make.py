@@ -70,6 +70,7 @@ command = sys.argv[2]
 if len(sys.argv) >= 4:
     addon = sys.argv[3]
 
+
 def system(scmd, **kwargs):
     """
     Replace and call system with scmd.
@@ -215,6 +216,57 @@ def do_tar(inc_files):
     tar.close()
 
 
+def compile_addon(addon):
+    """
+    Compile a single addon.
+    """
+    for po in glob.glob(f"{addon}/po/*.po"):
+        locale = os.path.basename(po[:-9])
+        mkdir(f"{addon}/locale/{locale}/LC_MESSAGES/")
+        system(f'msgfmt {po} -o "{addon}/locale/{locale}/LC_MESSAGES/addon.mo"')
+
+
+def build_addon(addon):
+    """
+    Compile and build a single addon.
+    """
+    compile_addon(addon)
+
+    if os.path.isfile(f"{addon}/setup.py"):
+        system(f"cd {addon}; python3 setup.py --build")
+        return
+
+    patts = [
+        f"{addon}/*.py",
+        f"{addon}/*.glade",
+        f"{addon}/*.xml",
+        f"{addon}/*.txt",
+        f"{addon}/locale/*/LC_MESSAGES/*.mo",
+    ]
+    if os.path.isfile(f"{addon}/MANIFEST"):
+        patts.extend(open(f"{addon}/MANIFEST", "r").read().split())
+    files = []
+    for patt in patts:
+        files.extend(glob.glob(patt))
+    if files:
+        do_tar(files)
+
+
+def check_gramps_path(command):
+    try:
+        sys.path.insert(0, GRAMPSPATH)
+        os.environ["GRAMPS_RESOURCES"] = os.path.abspath(GRAMPSPATH)
+        from gramps.gen.const import GRAMPS_LOCALE as glocale
+        from gramps.gen.plug import make_environment
+    except ImportError:
+        print(
+            "Where is Gramps: '%s'? Use "
+            "'GRAMPSPATH=path python3 make.py %s %s'"
+            % (os.path.abspath(GRAMPSPATH), gramps_version, command)
+        )
+        exit()
+
+
 def strip_header(po_file):
     """
     Strip the header off a `po` file and return its contents.
@@ -223,13 +275,70 @@ def strip_header(po_file):
     out_file = ""
     if not os.path.isfile(po_file):
         return out_file
-    with open(po_file, "r") as in_file:
+    with open(po_file, "r", encoding="utf-8") as in_file:
         for line in in_file:
             if not header:
                 out_file += line
             if line == "\n":
                 header = False
     return out_file
+
+
+def aggregate_pot():
+    """
+    Aggregate the template files for all addons into a single file without
+    strings that are already present in core Gramps.
+    """
+    f = open("po/template.pot", "w")
+    f.close()
+
+    args = ["xgettext", "-F", "-j", "-o", "po/template.pot"]
+    args.extend(glob.glob("*/po/template.pot"))
+    call(args)
+
+    gramps_pot = os.path.join(GRAMPSPATH, "po/gramps.pot")
+    args = ["msgcomm", "po/template.pot", gramps_pot]
+    args.extend(["--unique"])
+    args.extend(["-o", "po/unique.pot"])
+    call(args)
+
+    args = ["msgcomm", "po/template.pot", "po/unique.pot"]
+    args.extend(["--more-than", "1"])
+    args.extend(["-o", "po/addons.pot"])
+    call(args)
+
+    os.remove("po/template.pot")
+    os.remove("po/unique.pot")
+
+
+def extract_po(addon):
+    """
+    Extract the Weblate translations for a single addon.
+    """
+    po_dir = os.path.join(addon, "po")
+    pot = os.path.join(po_dir, "template.pot")
+    if not os.path.exists(pot):
+        return
+    for lang in get_all_languages():
+        # print (lang)
+        po = os.path.join(po_dir, f"{lang}-local.po")
+        if os.path.exists(f"po/{lang}.po"):
+            old_file = strip_header(po)
+            args = ["msgmerge", f"po/{lang}.po", pot]
+            args.extend(["--for-msgfmt"])
+            args.extend(["--no-fuzzy-matching"])
+            args.extend(["-o", po])
+            call(args)
+            new_file = strip_header(po)
+
+            # Remove files that only consist of a header.
+            if not new_file:
+                os.remove(po)
+
+            # Restore files that only have changes to the header.
+            if new_file and old_file == new_file:
+                args = ["git", "restore", po]
+                call(args)
 
 
 if command == "clean":
@@ -254,7 +363,8 @@ elif command == "init":
             sys.path.insert(0, GRAMPSPATH)
             os.environ["GRAMPS_RESOURCES"] = os.path.abspath(GRAMPSPATH)
             from gramps.gen.plug import make_environment
-        except ImportError:
+        except ImportError as e:
+            print(f"ImportError: {e}") # This will give the real error
             print(
                 "Where is Gramps: '%s'? Use "
                 "'GRAMPSPATH=path python3 make.py %s init'"
@@ -291,18 +401,18 @@ elif command == "init":
                 continue  # skip this one if not listed
 
             mkdir(f"{addon}/po")
-            fnames = ' '.join(glob.glob(f"{addon}/*.py"))
+            fnames = " ".join(glob.glob(f"{addon}/*.py"))
             system(
-                f"xgettext --language=Python --keyword=_ --keyword=N_"
-                f" --from-code=UTF-8"
+                f"xgettext --language=Python --keyword=_ --keyword=_:1,2c --keyword=N_"
+                f" --from-code=UTF-8 --add-comments=Translators"
                 f' -o "{addon}/po/template.pot" {fnames} '
             )
-            fnames = ' '.join(glob.glob("%s/*.glade" % addon))
+            fnames = " ".join(glob.glob("%s/*.glade" % addon))
             if fnames:
                 system(
                     "xgettext -j --add-comments -L Glade "
                     f'--from-code=UTF-8 -o "{addon}/po/template.pot" '
-                    f'{fnames}'
+                    f"{fnames}"
                 )
 
             # scan for xml files and get translation text where the tag
@@ -405,9 +515,9 @@ elif command == "update":
         f'"{addon}/po/{locale}-local.po" '
     )
     # Get all of the addon strings out of the catalog:
-    system(
-        f"touch {addon}/po/{locale}-temp.po"
-    )
+    f = open(f"{addon}/po/{locale}-temp.po", "w")
+    f.close()
+
     system(
         f"msggrep --location={addon}/* "
         f'"{addon}/po/{locale}-global.po" '
@@ -425,67 +535,21 @@ elif command == "update":
     # # Done!
     echo(f'\nYou can edit "{addon}/po/{locale}-local.po"')
 
-elif command in ["compile"]:
+elif command == "compile":
     if addon == "all":
         dirs = [file for file in glob.glob("*") if os.path.isdir(file)]
         for addon in dirs:
-            for po in glob.glob(f"{addon}/po/*.po"):
-                locale = os.path.basename(po[:-9])
-                mkdir(f"{addon}/locale/{locale}/LC_MESSAGES/")
-                system(f'msgfmt {po} -o "{addon}/locale/{locale}/LC_MESSAGES/addon.mo"')
+            compile_addon(addon)
     else:
-        for po in glob.glob(f"{addon}/po/*.po"):
-            locale = os.path.basename(po[:-9])
-            mkdir(f"{addon}/locale/{locale}/LC_MESSAGES/")
-            system(f'msgfmt {po} -o "{addon}/locale/{locale}/LC_MESSAGES/addon.mo"')
+        compile_addon(addon)
+
 elif command == "build":
     if addon == "all":
         dirs = [file for file in glob.glob("*") if os.path.isdir(file)]
-        # Compile all:
         for addon in dirs:
-            for po in glob.glob(f"{addon}/po/*.po"):
-                locale = os.path.basename(po[:-9])
-                mkdir(f"{addon}/locale/{locale}/LC_MESSAGES/")
-                system(f'msgfmt {po} -o "{addon}/locale/{locale}/LC_MESSAGES/addon.mo"')
-        # Build all:
-        for addon in dirs:
-            if os.path.isfile(f"{addon}/setup.py"):
-                system("cd %s; python3 setup.py --build" % addon)
-                continue
-            patts = [
-                f"{addon}/*.py",
-                f"{addon}/*.glade",
-                f"{addon}/*.xml",
-                f"{addon}/*.txt",
-                f"{addon}/locale/*/LC_MESSAGES/*.mo",
-            ]
-            if os.path.isfile(f"{addon}/MANIFEST"):
-                patts.extend(open(f"{addon}/MANIFEST", "r").read().split())
-            files = []
-            for patt in patts:
-                files.extend(glob.glob(patt))
-            if not files:
-                # git doesn't remove empty folders when switching branchs
-                continue
-            do_tar(files)
+            build_addon(addon)
     else:
-        for po in glob.glob(f"{addon}/po/*.po"):
-            locale = os.path.basename(po[:-9])
-            mkdir(f"{addon}/locale/{locale}/LC_MESSAGES/")
-            system(f'msgfmt {po} -o "{addon}/locale/{locale}/LC_MESSAGES/addon.mo"')
-        patts = [
-            f"{addon}/*.py",
-            f"{addon}/*.glade",
-            f"{addon}/*.xml",
-            f"{addon}/*.txt",
-            f"{addon}/locale/*/LC_MESSAGES/*.mo",
-        ]
-        if os.path.isfile(f"{addon}/MANIFEST"):
-            patts.extend(open(f"{addon}/MANIFEST", "r").read().split())
-        files = []
-        for patt in patts:
-            files.extend(glob.glob(patt))
-        do_tar(files)
+        build_addon(addon)
 
 elif command == "as-needed":
     import tempfile
@@ -513,9 +577,14 @@ elif command == "as-needed":
 
     languages = get_all_languages()
     listings = {lang: [] for lang in languages}
-    dirs = [
-        file for file in glob.glob("*") if os.path.isdir(file) and file != "__pycache__"
-    ]
+    if len(sys.argv) == 3 or addon == "all":
+        dirs = [
+            file
+            for file in glob.glob("*")
+            if os.path.isdir(file) and file != "__pycache__"
+        ]
+    else:
+        dirs = [addon]
     for addon in sorted(dirs):
         todo = False
         for po in glob.glob(f"{addon}/po/*-local.po"):
@@ -662,18 +731,18 @@ elif command == "as-needed":
         cleanup(addon)
         if todo:  # make an updated pot file
             mkdir("%(addon)s/po")
-            fnames = ' '.join(glob.glob(f"{addon}/*.py"))
+            fnames = " ".join(glob.glob(f"{addon}/*.py"))
             system(
-                "xgettext --language=Python --keyword=_ --keyword=N_"
-                " --from-code=UTF-8"
+                "xgettext --language=Python --keyword=_ --keyword=_:1,2c --keyword=N_"
+                " --from-code=UTF-8 --add-comments=Translators"
                 f' -o "{addon}/po/temp.pot" {fnames} '
             )
-            fnames = ' '.join(glob.glob(f"{addon}/*.glade"))
+            fnames = " ".join(glob.glob(f"{addon}/*.glade"))
             if fnames:
                 system(
                     "xgettext -j --add-comments -L Glade "
                     f'--from-code=UTF-8 -o "{addon}/po/temp.pot" '
-                    f'{fnames}'
+                    f"{fnames}"
                 )
 
             # scan for xml files and get translation text where the tag
@@ -960,64 +1029,15 @@ elif command == "listing":
         json.dump(output, fp_out, indent=0)
 
 elif command == "aggregate-pot":
-    try:
-        sys.path.insert(0, GRAMPSPATH)
-        os.environ["GRAMPS_RESOURCES"] = os.path.abspath(GRAMPSPATH)
-        from gramps.gen.const import GRAMPS_LOCALE as glocale
-        from gramps.gen.plug import make_environment
-    except ImportError:
-        print(
-            "Where is Gramps: '%s'? Use "
-            "'GRAMPSPATH=path python3 make.py %s aggregate-pot'"
-            % (os.path.abspath(GRAMPSPATH), gramps_version)
-        )
-        exit()
-
-    args = ["touch", "po/template.pot"]
-    call(args)
-
-    args = ["xgettext", "-j", "-o", "po/template.pot"]
-    args.extend(glob.glob("*/po/template.pot"))
-    call(args)
-
-    gramps_pot = os.path.join(GRAMPSPATH, "po/gramps.pot")
-    args = ["msgcomm", "po/template.pot", gramps_pot]
-    args.extend(["--unique"])
-    args.extend(["-o", "po/unique.pot"])
-    call(args)
-
-    args = ["msgcomm", "po/template.pot", "po/unique.pot"]
-    args.extend(["--more-than", "1"])
-    args.extend(["-o", "po/addons.pot"])
-    call(args)
-
-    os.remove("po/template.pot")
-    os.remove("po/unique.pot")
+    check_gramps_path(command)
+    aggregate_pot()
 
 elif command == "extract-po":
-    for po_dir in glob.glob("*/po"):
-        print (po_dir[:-3])
-        for lang in get_all_languages():
-            #print (lang)
-            po = os.path.join(po_dir, f"{lang}-local.po")
-            pot = os.path.join(po_dir, "template.pot")
-            if os.path.exists(f"po/{lang}.po"):
-                old_file = strip_header(po)
-                args = ["msgmerge", f"po/{lang}.po", pot]
-                args.extend(["--for-msgfmt"])
-                args.extend(["--no-fuzzy-matching"])
-                args.extend(["-o", po])
-                call(args)
-                new_file = strip_header(po)
-
-                # Remove files that only consist of a header.
-                if not new_file:
-                    os.remove(po)
-
-                # Restore files that only have changes to the header.
-                if new_file and old_file == new_file:
-                    args = ["git", "restore", po]
-                    call(args)
+    for addon in [
+        file for file in glob.glob("*") if os.path.isdir(file) and file != "po"
+    ]:
+        print(addon)
+        extract_po(addon)
 
 else:
     raise AttributeError("unknown command")

@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gramps 3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-16 15:10-0800\n"
-"PO-Revision-Date: 2025-02-25 16:12+0000\n"
-"Last-Translator: Fabio Restante <frestante@gmail.com>\n"
+"POT-Creation-Date: 2025-03-13 23:40+0000\n"
+"PO-Revision-Date: 2025-09-06 11:01+0000\n"
+"Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/gramps-project/"
 "addons/it/>\n"
 "Language: it\n"
@@ -12,7 +12,43 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10.2-dev\n"
+"X-Generator: Weblate 5.14-dev\n"
+
+msgid "MarriageIndex"
+msgstr "indice di matrimonio"
+
+msgid "New marriage"
+msgstr "Nuovo matrimonio"
+
+msgid "Select a marriage source"
+msgstr "Selezionare una fonte di matrimonio"
+
+msgid "Info:"
+msgstr "Info:"
+
+msgid "Origin:"
+msgstr "Origine:"
+
+msgid "Occupation:"
+msgstr "Occupazione:"
+
+msgid "Birth place:"
+msgstr "Luogo di nascita:"
+
+msgid "Note:"
+msgstr "Nota:"
+
+msgid "Death date:"
+msgstr "Data del decesso:"
+
+msgid "Death place:"
+msgstr "Luogo del decesso:"
+
+msgid "order, person, surname, given, age, status, occupation, etc ..."
+msgstr "ordine, persona, cognome, nome, età, stato, professione, ecc..."
+
+msgid "The source title"
+msgstr "Il titolo della fonte"
 
 msgid "select the gender/sex"
 msgstr "seleziona genere/sesso"
@@ -22,6 +58,17 @@ msgstr "I nomi della persona principale riportati nella fonte"
 
 msgid "The first names of the main person written into the source"
 msgstr "I nomi propri della persona principale riportati nella fonte"
+
+msgid ""
+"witness1, name, given, age, occupation;\n"
+"witness2, name, given, age, occupation;\n"
+"godfather, name, given, age, occupation;\n"
+"etc ..."
+msgstr ""
+"testimone1,nome,età,professione;\n"
+"testimone2,nome,età,professione;\n"
+"padrino,nome,età,professione;\n"
+"ecc..."
 
 msgid ""
 "Death\n"
@@ -37,8 +84,14 @@ msgstr ""
 "Luogo di\n"
 "nascita:"
 
-msgid "Birth place:"
-msgstr "Luogo di nascita:"
+msgid "Origine:"
+msgstr "Origine:"
 
-msgid "Death place:"
-msgstr "Luogo del decesso:"
+msgid "m. date:"
+msgstr "data m.:"
+
+msgid "m. place:"
+msgstr "luogo m.:"
+
+msgid "places banns:"
+msgstr "luoghi pubblicazioni:"

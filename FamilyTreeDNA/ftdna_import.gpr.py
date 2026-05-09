@@ -1,11 +1,11 @@
 register(
     TOOL,
-    id="FamilyTree DNA Import Gramplet",
+    id="FamilyTree DNA Import Tool",
     name=_("FamilyTree DNA"),
     description=_("Tool to import FamilyFinder DNA data from Family Tree"),
     status=STABLE,
     audience=EXPERT,
-    version = '1.0.33',
+    version = '1.0.34',
     gramps_target_version="6.0",
     fname="ftdna_import.py",
     category=TOOL_UTILS,

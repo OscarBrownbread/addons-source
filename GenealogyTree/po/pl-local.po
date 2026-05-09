@@ -1,0 +1,85 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: GRAMPS 3.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-02-16 15:10-0800\n"
+"PO-Revision-Date: 2025-09-12 11:02+0000\n"
+"Last-Translator: Krystian Safjan <ksafjan@gmail.com>\n"
+"Language-Team: Polish <https://hosted.weblate.org/projects/gramps-project/"
+"addons/pl/>\n"
+"Language: pl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 5.14-dev\n"
+"X-Poedit-Language: Polish\n"
+"X-Poedit-Country: POLAND\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: ~/.poedit/a\n"
+
+msgid "Ancestor tree using LaTeX genealogytree"
+msgstr "Drzewo przodków przy użyciu LaTeX genealogytree"
+
+msgid "Descendant tree using LaTeX genealogytree"
+msgstr "Drzewo potomków przy użyciu LaTeX genealogytree"
+
+msgid "Grandparent Tree"
+msgstr "Drzewo dziadków"
+
+msgid "Grandparent tree using LaTeX genealogytree"
+msgstr "Drzewo dziadków przy użyciu LaTeX genealogytree"
+
+msgid "Sandclock Tree"
+msgstr "Drzewo klepsydra"
+
+msgid "Sandclock tree using LaTeX genealogytree"
+msgstr "Drzewo klepsydra przy użyciu LaTeX genealogytree"
+
+msgid "Sandclock Tree for a Family"
+msgstr "Drzewo klepsydra dla rodziny"
+
+msgid "Sandclock tree for a family using LaTeX genealogytree"
+msgstr "Drzewo klepsydra dla rodziny przy użyciu LaTeX genealogytree"
+
+msgid "The center family for the report"
+msgstr "Centralna rodzina dla raportu"
+
+msgid "Generations up"
+msgstr "Pokolenia w górę"
+
+msgid "Generations down"
+msgstr "Pokolenia w dół"
+
+msgid "Include siblings"
+msgstr "Dołącz rodzeństwo"
+
+msgid "Include siblings of ancestors."
+msgstr "Dołącz rodzeństwo przodków."
+
+msgid "Include images"
+msgstr "Dołącz zdjęcia"
+
+msgid "Include images of people in the nodes."
+msgstr "Dołącz zdjęcia osób w węzłach drzewa."
+
+#, python-format
+msgid "Person %s does not have both a paternal and a maternal grandparent"
+msgstr "Osoba %s nie ma dziadków zarówno ze strony ojca, jak i matki"
+
+msgid "Grandparent family spacing"
+msgstr "Odstępy między rodzinami dziadków"
+
+msgid "Extra spacing of grandparent families (mm)"
+msgstr "Dodatkowe odstępy między rodzinami dziadków (mm)"
+
+msgid "First spouse left"
+msgstr "Pierwszy małżonek po lewej"
+
+msgid ""
+"Always put first of multiple spouses on the left. This can help reduce line-"
+"crossings with multiple marriages."
+msgstr ""
+"Zawsze umieszczaj pierwszego z wielu małżonków po lewej stronie. Pomoże to "
+"ograniczyć krzyżowanie się linii w przypadku wielu małżeństw."
